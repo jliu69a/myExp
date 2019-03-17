@@ -26,6 +26,32 @@
 		5ACF022E223F0DA200FBD3DC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ACF022D223F0DA200FBD3DC /* MapKit.framework */; };
 		5ACF0230223F0DE200FBD3DC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF022F223F0DE200FBD3DC /* DataManager.swift */; };
 		5ACF0232223F0E1400FBD3DC /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0231223F0E1400FBD3DC /* DisplayManager.swift */; };
+		5ACF023C223F0EF100FBD3DC /* PAndVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0233223F0EF100FBD3DC /* PAndVCell.swift */; };
+		5ACF023D223F0EF100FBD3DC /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0234223F0EF100FBD3DC /* ExpenseCell.swift */; };
+		5ACF023E223F0EF100FBD3DC /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0235223F0EF100FBD3DC /* LoginRegisterViewController.swift */; };
+		5ACF023F223F0EF100FBD3DC /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0236223F0EF100FBD3DC /* ExpenseCell.xib */; };
+		5ACF0240223F0EF100FBD3DC /* ExpenseHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0237223F0EF100FBD3DC /* ExpenseHomeViewController.swift */; };
+		5ACF0241223F0EF100FBD3DC /* PAndVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0238223F0EF100FBD3DC /* PAndVCell.xib */; };
+		5ACF0242223F0EF100FBD3DC /* ChangeDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0239223F0EF100FBD3DC /* ChangeDateViewController.swift */; };
+		5ACF0243223F0EF100FBD3DC /* EditExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF023A223F0EF100FBD3DC /* EditExpensesViewController.swift */; };
+		5ACF0244223F0EF100FBD3DC /* PaymentsVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF023B223F0EF100FBD3DC /* PaymentsVendorsViewController.swift */; };
+		5ACF0252223F0F1400FBD3DC /* AdminPaymentsVendorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0245223F0F1300FBD3DC /* AdminPaymentsVendorsVC.swift */; };
+		5ACF0253223F0F1400FBD3DC /* AdminEditColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0246223F0F1300FBD3DC /* AdminEditColorViewController.swift */; };
+		5ACF0254223F0F1400FBD3DC /* AdminReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0247223F0F1300FBD3DC /* AdminReportCell.xib */; };
+		5ACF0255223F0F1400FBD3DC /* AdminListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0248223F0F1300FBD3DC /* AdminListCell.swift */; };
+		5ACF0256223F0F1400FBD3DC /* AdminDeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0249223F0F1300FBD3DC /* AdminDeviceInfoViewController.swift */; };
+		5ACF0257223F0F1400FBD3DC /* AdminReportDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF024A223F0F1300FBD3DC /* AdminReportDateViewController.swift */; };
+		5ACF0258223F0F1400FBD3DC /* AdminColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF024B223F0F1300FBD3DC /* AdminColorsViewController.swift */; };
+		5ACF0259223F0F1400FBD3DC /* AdminReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF024C223F0F1300FBD3DC /* AdminReportCell.swift */; };
+		5ACF025A223F0F1400FBD3DC /* AdminPVEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF024D223F0F1300FBD3DC /* AdminPVEditViewController.swift */; };
+		5ACF025B223F0F1400FBD3DC /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF024E223F0F1400FBD3DC /* AdminHomeViewController.swift */; };
+		5ACF025C223F0F1400FBD3DC /* AdminListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF024F223F0F1400FBD3DC /* AdminListCell.xib */; };
+		5ACF025D223F0F1400FBD3DC /* AdminLocationChecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0250223F0F1400FBD3DC /* AdminLocationChecksViewController.swift */; };
+		5ACF025E223F0F1400FBD3DC /* AdminShowReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0251223F0F1400FBD3DC /* AdminShowReportsViewController.swift */; };
+		5ACF0264223F0F6800FBD3DC /* loginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0260223F0F6700FBD3DC /* loginRegister.storyboard */; };
+		5ACF0265223F0F6800FBD3DC /* pandv.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0261223F0F6700FBD3DC /* pandv.storyboard */; };
+		5ACF0266223F0F6800FBD3DC /* admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0262223F0F6800FBD3DC /* admin.storyboard */; };
+		5ACF0267223F0F6800FBD3DC /* expenseHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0263223F0F6800FBD3DC /* expenseHome.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +76,32 @@
 		5ACF022D223F0DA200FBD3DC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5ACF022F223F0DE200FBD3DC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5ACF0231223F0E1400FBD3DC /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
+		5ACF0233223F0EF100FBD3DC /* PAndVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAndVCell.swift; sourceTree = "<group>"; };
+		5ACF0234223F0EF100FBD3DC /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
+		5ACF0235223F0EF100FBD3DC /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
+		5ACF0236223F0EF100FBD3DC /* ExpenseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
+		5ACF0237223F0EF100FBD3DC /* ExpenseHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseHomeViewController.swift; sourceTree = "<group>"; };
+		5ACF0238223F0EF100FBD3DC /* PAndVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAndVCell.xib; sourceTree = "<group>"; };
+		5ACF0239223F0EF100FBD3DC /* ChangeDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateViewController.swift; sourceTree = "<group>"; };
+		5ACF023A223F0EF100FBD3DC /* EditExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditExpensesViewController.swift; sourceTree = "<group>"; };
+		5ACF023B223F0EF100FBD3DC /* PaymentsVendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsVendorsViewController.swift; sourceTree = "<group>"; };
+		5ACF0245223F0F1300FBD3DC /* AdminPaymentsVendorsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPaymentsVendorsVC.swift; sourceTree = "<group>"; };
+		5ACF0246223F0F1300FBD3DC /* AdminEditColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEditColorViewController.swift; sourceTree = "<group>"; };
+		5ACF0247223F0F1300FBD3DC /* AdminReportCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminReportCell.xib; sourceTree = "<group>"; };
+		5ACF0248223F0F1300FBD3DC /* AdminListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminListCell.swift; sourceTree = "<group>"; };
+		5ACF0249223F0F1300FBD3DC /* AdminDeviceInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminDeviceInfoViewController.swift; sourceTree = "<group>"; };
+		5ACF024A223F0F1300FBD3DC /* AdminReportDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminReportDateViewController.swift; sourceTree = "<group>"; };
+		5ACF024B223F0F1300FBD3DC /* AdminColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminColorsViewController.swift; sourceTree = "<group>"; };
+		5ACF024C223F0F1300FBD3DC /* AdminReportCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminReportCell.swift; sourceTree = "<group>"; };
+		5ACF024D223F0F1300FBD3DC /* AdminPVEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPVEditViewController.swift; sourceTree = "<group>"; };
+		5ACF024E223F0F1400FBD3DC /* AdminHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
+		5ACF024F223F0F1400FBD3DC /* AdminListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminListCell.xib; sourceTree = "<group>"; };
+		5ACF0250223F0F1400FBD3DC /* AdminLocationChecksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminLocationChecksViewController.swift; sourceTree = "<group>"; };
+		5ACF0251223F0F1400FBD3DC /* AdminShowReportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminShowReportsViewController.swift; sourceTree = "<group>"; };
+		5ACF0260223F0F6700FBD3DC /* loginRegister.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = loginRegister.storyboard; sourceTree = "<group>"; };
+		5ACF0261223F0F6700FBD3DC /* pandv.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = pandv.storyboard; sourceTree = "<group>"; };
+		5ACF0262223F0F6800FBD3DC /* admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = admin.storyboard; sourceTree = "<group>"; };
+		5ACF0263223F0F6800FBD3DC /* expenseHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = expenseHome.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,14 +136,15 @@
 		5ACF01FD223EFEC400FBD3DC /* myExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				5ACF025F223F0F5100FBD3DC /* storyboards */,
 				5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */,
 				5ACF0200223EFEC400FBD3DC /* ViewController.swift */,
 				5ACF0210223EFFD700FBD3DC /* admin */,
-				5ACF0215223F002600FBD3DC /* storyboards */,
 				5ACF0211223EFFE800FBD3DC /* controllers */,
 				5ACF0212223EFFF600FBD3DC /* images */,
 				5ACF0213223F000600FBD3DC /* managers */,
 				5ACF0214223F001700FBD3DC /* models */,
+				5ACF0215223F002600FBD3DC /* storyboards */,
 				5ACF0202223EFEC400FBD3DC /* Main.storyboard */,
 				5ACF0205223EFEC500FBD3DC /* Assets.xcassets */,
 				5ACF0207223EFEC500FBD3DC /* LaunchScreen.storyboard */,
@@ -103,6 +156,19 @@
 		5ACF0210223EFFD700FBD3DC /* admin */ = {
 			isa = PBXGroup;
 			children = (
+				5ACF024B223F0F1300FBD3DC /* AdminColorsViewController.swift */,
+				5ACF0249223F0F1300FBD3DC /* AdminDeviceInfoViewController.swift */,
+				5ACF0246223F0F1300FBD3DC /* AdminEditColorViewController.swift */,
+				5ACF024E223F0F1400FBD3DC /* AdminHomeViewController.swift */,
+				5ACF0248223F0F1300FBD3DC /* AdminListCell.swift */,
+				5ACF024F223F0F1400FBD3DC /* AdminListCell.xib */,
+				5ACF0250223F0F1400FBD3DC /* AdminLocationChecksViewController.swift */,
+				5ACF0245223F0F1300FBD3DC /* AdminPaymentsVendorsVC.swift */,
+				5ACF024D223F0F1300FBD3DC /* AdminPVEditViewController.swift */,
+				5ACF024C223F0F1300FBD3DC /* AdminReportCell.swift */,
+				5ACF0247223F0F1300FBD3DC /* AdminReportCell.xib */,
+				5ACF024A223F0F1300FBD3DC /* AdminReportDateViewController.swift */,
+				5ACF0251223F0F1400FBD3DC /* AdminShowReportsViewController.swift */,
 			);
 			path = admin;
 			sourceTree = "<group>";
@@ -110,6 +176,15 @@
 		5ACF0211223EFFE800FBD3DC /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5ACF0239223F0EF100FBD3DC /* ChangeDateViewController.swift */,
+				5ACF023A223F0EF100FBD3DC /* EditExpensesViewController.swift */,
+				5ACF0234223F0EF100FBD3DC /* ExpenseCell.swift */,
+				5ACF0236223F0EF100FBD3DC /* ExpenseCell.xib */,
+				5ACF0237223F0EF100FBD3DC /* ExpenseHomeViewController.swift */,
+				5ACF0235223F0EF100FBD3DC /* LoginRegisterViewController.swift */,
+				5ACF0233223F0EF100FBD3DC /* PAndVCell.swift */,
+				5ACF0238223F0EF100FBD3DC /* PAndVCell.xib */,
+				5ACF023B223F0EF100FBD3DC /* PaymentsVendorsViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -151,6 +226,10 @@
 		5ACF0215223F002600FBD3DC /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				5ACF0262223F0F6800FBD3DC /* admin.storyboard */,
+				5ACF0263223F0F6800FBD3DC /* expenseHome.storyboard */,
+				5ACF0260223F0F6700FBD3DC /* loginRegister.storyboard */,
+				5ACF0261223F0F6700FBD3DC /* pandv.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -161,6 +240,14 @@
 				5ACF022D223F0DA200FBD3DC /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5ACF025F223F0F5100FBD3DC /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = storyboards;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,13 +308,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ACF023F223F0EF100FBD3DC /* ExpenseCell.xib in Resources */,
 				5ACF0209223EFEC500FBD3DC /* LaunchScreen.storyboard in Resources */,
 				5ACF0206223EFEC500FBD3DC /* Assets.xcassets in Resources */,
 				5ACF0224223F0CC400FBD3DC /* myExp_back.png in Resources */,
 				5ACF0223223F0CC400FBD3DC /* myExp_more.png in Resources */,
+				5ACF0241223F0EF100FBD3DC /* PAndVCell.xib in Resources */,
+				5ACF0267223F0F6800FBD3DC /* expenseHome.storyboard in Resources */,
 				5ACF0222223F0CC400FBD3DC /* myExp_cal.png in Resources */,
 				5ACF0225223F0CC400FBD3DC /* myExp_plus.png in Resources */,
+				5ACF0265223F0F6800FBD3DC /* pandv.storyboard in Resources */,
+				5ACF025C223F0F1400FBD3DC /* AdminListCell.xib in Resources */,
+				5ACF0264223F0F6800FBD3DC /* loginRegister.storyboard in Resources */,
 				5ACF0204223EFEC400FBD3DC /* Main.storyboard in Resources */,
+				5ACF0266223F0F6800FBD3DC /* admin.storyboard in Resources */,
+				5ACF0254223F0F1400FBD3DC /* AdminReportCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,13 +334,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ACF0217223F0BA300FBD3DC /* ExpenseModel.swift in Sources */,
+				5ACF0255223F0F1400FBD3DC /* AdminListCell.swift in Sources */,
 				5ACF0230223F0DE200FBD3DC /* DataManager.swift in Sources */,
 				5ACF021D223F0C2000FBD3DC /* ExpsConstants.swift in Sources */,
+				5ACF0244223F0EF100FBD3DC /* PaymentsVendorsViewController.swift in Sources */,
+				5ACF023E223F0EF100FBD3DC /* LoginRegisterViewController.swift in Sources */,
+				5ACF0240223F0EF100FBD3DC /* ExpenseHomeViewController.swift in Sources */,
+				5ACF0253223F0F1400FBD3DC /* AdminEditColorViewController.swift in Sources */,
+				5ACF023C223F0EF100FBD3DC /* PAndVCell.swift in Sources */,
+				5ACF0257223F0F1400FBD3DC /* AdminReportDateViewController.swift in Sources */,
+				5ACF0243223F0EF100FBD3DC /* EditExpensesViewController.swift in Sources */,
+				5ACF023D223F0EF100FBD3DC /* ExpenseCell.swift in Sources */,
+				5ACF025D223F0F1400FBD3DC /* AdminLocationChecksViewController.swift in Sources */,
 				5ACF0219223F0BDB00FBD3DC /* PAndVModel.swift in Sources */,
 				5ACF021B223F0BFD00FBD3DC /* ReportModel.swift in Sources */,
 				5ACF022B223F0D8800FBD3DC /* ConnectionManager.swift in Sources */,
+				5ACF025B223F0F1400FBD3DC /* AdminHomeViewController.swift in Sources */,
+				5ACF0259223F0F1400FBD3DC /* AdminReportCell.swift in Sources */,
+				5ACF025A223F0F1400FBD3DC /* AdminPVEditViewController.swift in Sources */,
 				5ACF0227223F0CFF00FBD3DC /* UtilsManager.swift in Sources */,
 				5ACF0232223F0E1400FBD3DC /* DisplayManager.swift in Sources */,
+				5ACF0256223F0F1400FBD3DC /* AdminDeviceInfoViewController.swift in Sources */,
+				5ACF025E223F0F1400FBD3DC /* AdminShowReportsViewController.swift in Sources */,
+				5ACF0252223F0F1400FBD3DC /* AdminPaymentsVendorsVC.swift in Sources */,
+				5ACF0242223F0EF100FBD3DC /* ChangeDateViewController.swift in Sources */,
+				5ACF0258223F0F1400FBD3DC /* AdminColorsViewController.swift in Sources */,
 				5ACF0201223EFEC400FBD3DC /* ViewController.swift in Sources */,
 				5ACF0229223F0D3000FBD3DC /* UserManager.swift in Sources */,
 				5ACF01FF223EFEC400FBD3DC /* AppDelegate.swift in Sources */,
