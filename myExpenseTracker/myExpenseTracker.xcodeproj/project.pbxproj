@@ -56,12 +56,60 @@
 			children = (
 				5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */,
 				5ACF0200223EFEC400FBD3DC /* ViewController.swift */,
+				5ACF0210223EFFD700FBD3DC /* admin */,
+				5ACF0215223F002600FBD3DC /* storyboards */,
+				5ACF0211223EFFE800FBD3DC /* controllers */,
+				5ACF0212223EFFF600FBD3DC /* images */,
+				5ACF0213223F000600FBD3DC /* managers */,
+				5ACF0214223F001700FBD3DC /* models */,
 				5ACF0202223EFEC400FBD3DC /* Main.storyboard */,
 				5ACF0205223EFEC500FBD3DC /* Assets.xcassets */,
 				5ACF0207223EFEC500FBD3DC /* LaunchScreen.storyboard */,
 				5ACF020A223EFEC500FBD3DC /* Info.plist */,
 			);
 			path = myExpenseTracker;
+			sourceTree = "<group>";
+		};
+		5ACF0210223EFFD700FBD3DC /* admin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = admin;
+			sourceTree = "<group>";
+		};
+		5ACF0211223EFFE800FBD3DC /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		5ACF0212223EFFF600FBD3DC /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		5ACF0213223F000600FBD3DC /* managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = managers;
+			sourceTree = "<group>";
+		};
+		5ACF0214223F001700FBD3DC /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		5ACF0215223F002600FBD3DC /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,17 +330,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WSH8T4CK9T;
 				INFOPLIST_FILE = myExpenseTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = MyExpenseTrackerDev;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -300,17 +350,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WSH8T4CK9T;
 				INFOPLIST_FILE = myExpenseTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = MyExpenseTrackerProd;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
