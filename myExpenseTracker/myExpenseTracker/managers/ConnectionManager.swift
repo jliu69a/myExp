@@ -117,7 +117,7 @@ class ConnectionManager: NSObject {
         
         let dataText: String = String(format: "id=%@&name=%@&edit=%@", id, name, isForEdit)
         
-        let urlString: String = "http://www.mysohoplace.com/php_hdb/php_GL/prod/change_payment.php"
+        let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/change_payment.php", folder)
         let url: URL = URL(string: urlString)!
         
         var request = URLRequest(url: url)
@@ -142,7 +142,7 @@ class ConnectionManager: NSObject {
         
         let dataText: String = String(format: "id=%@&name=%@&edit=%@", id, name, isForEdit)
         
-        let urlString: String = "http://www.mysohoplace.com/php_hdb/php_GL/prod/change_vendor.php"
+        let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/change_vendor.php", folder)
         let url: URL = URL(string: urlString)!
         
         var request = URLRequest(url: url)
