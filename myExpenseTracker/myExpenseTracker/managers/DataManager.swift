@@ -16,11 +16,13 @@ class DataManager: NSObject {
     var paymentsData: [PAndVModel]? = []
     var vendorsData: [PAndVModel]? = []
     var expensesData: [ExpenseModel]? = []
+    var top10Data: [PAndVModel]? = []
     
     var exportsList: [ExpenseModel]? = []
     
     var vendorGroups: [String: [PAndVModel]]? = [:]
     var vendorGroupKeys: [String]? = []
+    var vendorTop10GroupKeys: [String]? = []
     
     var paymentReportData: [ReportModel] = []
     var vendorReportData: [ReportModel] = []
@@ -46,6 +48,7 @@ class DataManager: NSObject {
             let expenses: [Any]? = dictionary!["expense"] as? [Any]
             let payments: [Any]? = dictionary!["payment"] as? [Any]
             let vendors: [Any]? = dictionary!["vendor"] as? [Any]
+            let top10: [Any]? = dictionary!["top10"] as? [Any]
             
             let paymentsData: [AnyObject] = payments! as [AnyObject]
             self.parsePayments(data: paymentsData)
@@ -55,6 +58,9 @@ class DataManager: NSObject {
             
             let expenseData: [AnyObject] = expenses! as [AnyObject]
             self.parseExpenses(data: expenseData)
+            
+            let top10Data: [AnyObject] = top10! as [AnyObject]
+            self.parseTop10(data: top10Data)
             
             //-- grouping vendors
             self.groupingVendors(data: self.vendorsData!)
@@ -197,7 +203,22 @@ class DataManager: NSObject {
             model.pvName = eachItem["vendor"] as? String
             self.vendorsData!.append(model)
         }
-        self.groupingVendors(data: self.vendorsData!)
+    }
+    
+    func parseTop10(data: [AnyObject]) {
+        
+        self.top10Data!.removeAll()
+        if data.count == 0 {
+            return
+        }
+        
+        for item in data {
+            let eachItem: [String: AnyObject] = item as! [String: AnyObject]
+            let model: PAndVModel = PAndVModel()
+            model.pvId = eachItem["id"] as? String
+            model.pvName = eachItem["vendor"] as? String
+            self.top10Data!.append(model)
+        }
     }
     
     func parseExpenses(data: [AnyObject]) {
@@ -265,6 +286,16 @@ class DataManager: NSObject {
             }
             list!.append(item)
             self.vendorGroups![upperCaseFirstLetter] = list!
+        }
+        
+        //-- add in top 10 vendors
+        if self.top10Data != nil && self.top10Data!.count > 0 {
+            self.vendorTop10GroupKeys = self.vendorGroupKeys!
+            
+            let top10Title: String = "Top 10"
+            self.vendorTop10GroupKeys?.insert(top10Title, at: 0)
+            
+            self.vendorGroups![top10Title] = self.top10Data!
         }
     }
     
@@ -393,6 +424,7 @@ class DataManager: NSObject {
         print("- total payments = \(self.paymentsData!.count) ")
         print("- total vendors  = \(self.vendorsData!.count) ")
         print("- total expenses = \(self.expensesData!.count) ")
+        print("- total top 10 = \(self.top10Data!.count) ")
         print("- ")
     }
 }

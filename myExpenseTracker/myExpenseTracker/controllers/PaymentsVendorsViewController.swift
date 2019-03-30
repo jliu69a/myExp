@@ -76,7 +76,7 @@ class PaymentsVendorsViewController: UIViewController, UITableViewDataSource, UI
             return 1
         }
         else {
-            return DataManager.sharedInstance.vendorGroupKeys!.count
+            return DataManager.sharedInstance.vendorTop10GroupKeys!.count
         }
     }
     
@@ -86,7 +86,7 @@ class PaymentsVendorsViewController: UIViewController, UITableViewDataSource, UI
             return self.rowsList!.count
         }
         else {
-            let key: String = DataManager.sharedInstance.vendorGroupKeys![section]
+            let key: String = DataManager.sharedInstance.vendorTop10GroupKeys![section]
             var list: [PAndVModel]? = DataManager.sharedInstance.vendorGroups![key]
             if list == nil {
                 list = []
@@ -102,7 +102,7 @@ class PaymentsVendorsViewController: UIViewController, UITableViewDataSource, UI
             model = self.rowsList![indexPath.row]
         }
         else {
-            let key: String = DataManager.sharedInstance.vendorGroupKeys![indexPath.section]
+            let key: String = DataManager.sharedInstance.vendorTop10GroupKeys![indexPath.section]
             var list: [PAndVModel]? = DataManager.sharedInstance.vendorGroups![key]
             if list == nil {
                 list = []
@@ -152,7 +152,7 @@ class PaymentsVendorsViewController: UIViewController, UITableViewDataSource, UI
             return nil
         }
         else {
-            return DataManager.sharedInstance.vendorGroupKeys![section]
+            return DataManager.sharedInstance.vendorTop10GroupKeys![section]
         }
     }
     
@@ -167,7 +167,7 @@ class PaymentsVendorsViewController: UIViewController, UITableViewDataSource, UI
             model = self.rowsList![indexPath.row]
         }
         else {
-            let key: String = DataManager.sharedInstance.vendorGroupKeys![indexPath.section]
+            let key: String = DataManager.sharedInstance.vendorTop10GroupKeys![indexPath.section]
             var list: [PAndVModel]? = DataManager.sharedInstance.vendorGroups![key]
             if list == nil {
                 list = []

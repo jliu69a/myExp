@@ -136,7 +136,6 @@
 		5ACF01FD223EFEC400FBD3DC /* myExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
-				5ACF025F223F0F5100FBD3DC /* storyboards */,
 				5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */,
 				5ACF0200223EFEC400FBD3DC /* ViewController.swift */,
 				5ACF0210223EFFD700FBD3DC /* admin */,
@@ -240,14 +239,6 @@
 				5ACF022D223F0DA200FBD3DC /* MapKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5ACF025F223F0F5100FBD3DC /* storyboards */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = storyboards;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
