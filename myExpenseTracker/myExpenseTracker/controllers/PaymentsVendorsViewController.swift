@@ -142,7 +142,22 @@ class PaymentsVendorsViewController: UIViewController, UITableViewDataSource, UI
             return 0
         }
         else {
-            return 30
+            //-- for vendors
+            if section == 0 {
+                let key: String = DataManager.sharedInstance.vendorTop10GroupKeys![section]
+                let list: [PAndVModel]? = DataManager.sharedInstance.vendorGroups![key]
+                
+                //-- check for Top-10 listing
+                if list != nil && list!.count > 0 {
+                    return 30
+                }
+                else {
+                    return 0
+                }
+            }
+            else {
+                return 30
+            }
         }
     }
     

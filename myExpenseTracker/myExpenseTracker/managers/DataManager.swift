@@ -289,14 +289,10 @@ class DataManager: NSObject {
         }
         
         //-- add in top 10 vendors
-        if self.top10Data != nil && self.top10Data!.count > 0 {
-            self.vendorTop10GroupKeys = self.vendorGroupKeys!
-            
-            let top10Title: String = "Top 10"
-            self.vendorTop10GroupKeys?.insert(top10Title, at: 0)
-            
-            self.vendorGroups![top10Title] = self.top10Data!
-        }
+        self.vendorTop10GroupKeys = self.vendorGroupKeys!
+        let top10Title: String = "Top 10"
+        self.vendorTop10GroupKeys?.insert(top10Title, at: 0)
+        self.vendorGroups![top10Title] = self.top10Data!
     }
     
     func parseReportsData(payments:[AnyObject], vendors:[AnyObject]) {
