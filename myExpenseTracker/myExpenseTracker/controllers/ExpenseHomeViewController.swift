@@ -183,6 +183,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         let df: DateFormatter = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
         let dateString: String = df.string(from: DisplayManager.sharedInstance.selectedDate)
+        self.activityIndicator.startAnimating()
         DataManager.sharedInstance.expensesOnDate(date: dateString)
         self.showDate()
         
