@@ -219,6 +219,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         cell!.cellVendorLabel.text = data.vendor!
         cell!.cellPaymentLabel.text = data.payment!
         cell!.cellNotesLabel.text = data.note!
+        cell!.cellTimeLabel.text = String(format: "( time: %@ )", data.time!)
         
         let amountText = String(format: "%0.2f", data.amount)
         cell!.cellAmountLabel.text = amountText

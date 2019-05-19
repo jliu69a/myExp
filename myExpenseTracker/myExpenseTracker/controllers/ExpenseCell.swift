@@ -15,7 +15,7 @@ class ExpenseCell: UITableViewCell {
     @IBOutlet weak var cellNotesLabel: UILabel!
     @IBOutlet weak var cellAmountLabel: UILabel!
     @IBOutlet weak var cellPaymentLabel: UILabel!
-    
+    @IBOutlet weak var cellTimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

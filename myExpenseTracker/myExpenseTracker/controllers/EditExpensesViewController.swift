@@ -244,12 +244,14 @@ class EditExpensesViewController: UIViewController, UITextFieldDelegate, ChangeD
             isForEdit = false
         }
         
+        let rightNow: Date = Date()
+        
         let df: DateFormatter = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
         let dateText: String = df.string(from: self.selectedDate)
         
         df.dateFormat = "HH:mm:ss"
-        let timeText: String = df.string(from: self.selectedDate)
+        let timeText: String = df.string(from: rightNow)
         
         self.selectedModel!.date = dateText
         self.selectedModel!.time = timeText
