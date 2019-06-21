@@ -227,10 +227,20 @@ class AdminPaymentsVendorsVC: UIViewController, UITableViewDataSource, UITableVi
         let nameValue: String = self.selectedModel!.pvName!
         
         if self.isForVendor {
-            DataManager.sharedInstance.changeVendor(id: idValue, name: nameValue, isForEdit: "0")
+            if Reachability.isConnectedToNetwork() {
+                DataManager.sharedInstance.changeVendor(id: idValue, name: nameValue, isForEdit: "0")
+            }
+            else {
+                AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
+            }
         }
         else {
-            DataManager.sharedInstance.changePayment(id: idValue, name: nameValue, isForEdit: "0")
+            if Reachability.isConnectedToNetwork() {
+                DataManager.sharedInstance.changePayment(id: idValue, name: nameValue, isForEdit: "0")
+            }
+            else {
+                AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
+            }
         }
     }
     

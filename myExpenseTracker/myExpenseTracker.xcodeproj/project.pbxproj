@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A3E459522923D250087B1E4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E459422923D250087B1E4 /* Reachability.swift */; };
+		5A3E459722923D440087B1E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3E459622923D440087B1E4 /* SystemConfiguration.framework */; };
+		5A3E459922923E120087B1E4 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E459822923E120087B1E4 /* AlertManager.swift */; };
 		5ACF01FF223EFEC400FBD3DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */; };
 		5ACF0201223EFEC400FBD3DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0200223EFEC400FBD3DC /* ViewController.swift */; };
 		5ACF0204223EFEC400FBD3DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0202223EFEC400FBD3DC /* Main.storyboard */; };
@@ -55,6 +58,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A3E459422923D250087B1E4 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		5A3E459622923D440087B1E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5A3E459822923E120087B1E4 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		5ACF01FB223EFEC400FBD3DC /* myExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ACF0200223EFEC400FBD3DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A3E459722923D440087B1E4 /* SystemConfiguration.framework in Frameworks */,
 				5ACF022E223F0DA200FBD3DC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +214,8 @@
 				5ACF022A223F0D8800FBD3DC /* ConnectionManager.swift */,
 				5ACF022F223F0DE200FBD3DC /* DataManager.swift */,
 				5ACF0231223F0E1400FBD3DC /* DisplayManager.swift */,
+				5A3E459422923D250087B1E4 /* Reachability.swift */,
+				5A3E459822923E120087B1E4 /* AlertManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 		5ACF022C223F0DA100FBD3DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A3E459622923D440087B1E4 /* SystemConfiguration.framework */,
 				5ACF022D223F0DA200FBD3DC /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -332,6 +342,7 @@
 				5ACF023E223F0EF100FBD3DC /* LoginRegisterViewController.swift in Sources */,
 				5ACF0240223F0EF100FBD3DC /* ExpenseHomeViewController.swift in Sources */,
 				5ACF0253223F0F1400FBD3DC /* AdminEditColorViewController.swift in Sources */,
+				5A3E459522923D250087B1E4 /* Reachability.swift in Sources */,
 				5ACF023C223F0EF100FBD3DC /* PAndVCell.swift in Sources */,
 				5ACF0257223F0F1400FBD3DC /* AdminReportDateViewController.swift in Sources */,
 				5ACF0243223F0EF100FBD3DC /* EditExpensesViewController.swift in Sources */,
@@ -348,6 +359,7 @@
 				5ACF0256223F0F1400FBD3DC /* AdminDeviceInfoViewController.swift in Sources */,
 				5ACF025E223F0F1400FBD3DC /* AdminShowReportsViewController.swift in Sources */,
 				5ACF0252223F0F1400FBD3DC /* AdminPaymentsVendorsVC.swift in Sources */,
+				5A3E459922923E120087B1E4 /* AlertManager.swift in Sources */,
 				5ACF0242223F0EF100FBD3DC /* ChangeDateViewController.swift in Sources */,
 				5ACF0258223F0F1400FBD3DC /* AdminColorsViewController.swift in Sources */,
 				5ACF0201223EFEC400FBD3DC /* ViewController.swift in Sources */,

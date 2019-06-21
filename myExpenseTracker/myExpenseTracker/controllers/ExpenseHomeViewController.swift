@@ -34,7 +34,13 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         DisplayManager.sharedInstance.createYearsAndMonths()
         
         //-- initial
-        DataManager.sharedInstance.loadInitialData()
+        if Reachability.isConnectedToNetwork() {
+            DataManager.sharedInstance.loadInitialData()
+        }
+        else {
+            AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
+        }
+        
         self.activityIndicator.startAnimating()
         DisplayManager.sharedInstance.selectedDate = Date()
         
@@ -184,7 +190,13 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         df.dateFormat = "yyyy-MM-dd"
         let dateString: String = df.string(from: DisplayManager.sharedInstance.selectedDate)
         self.activityIndicator.startAnimating()
-        DataManager.sharedInstance.expensesOnDate(date: dateString)
+        
+        if Reachability.isConnectedToNetwork(){
+            DataManager.sharedInstance.expensesOnDate(date: dateString)
+        }
+        else{
+            AlertManager.showAlert(title: "Error", message: "There is no Internet connection.", controller: self)
+        }
         self.showDate()
         
         //-- printing
@@ -280,7 +292,12 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         
         let okAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.default) { (action) in
             print("-> to delete, ID = \(self.selectedExpenseItem!.expId) ...")
-            DataManager.sharedInstance.changeExpenseData(data: self.selectedExpenseItem!, isForEdit: false)
+            if Reachability.isConnectedToNetwork(){
+                DataManager.sharedInstance.changeExpenseData(data: self.selectedExpenseItem!, isForEdit: false)
+            }
+            else{
+                AlertManager.showAlert(title: "Error", message: "There is no Internet connection.", controller: self)
+            }
         }
         
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { (action) in

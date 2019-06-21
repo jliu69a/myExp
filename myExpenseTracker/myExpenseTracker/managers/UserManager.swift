@@ -15,4 +15,7 @@ final class UserManager: NSObject {
     var userId: String? = ""
     var userName: String? = ""
     var password: String? = ""
+    
+    let noInternetAlertTitle: String = "Error"
+    let noInternetAlertMessage: String = "There is no Internet connection."
 }

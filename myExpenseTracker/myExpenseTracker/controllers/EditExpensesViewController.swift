@@ -266,7 +266,12 @@ class EditExpensesViewController: UIViewController, UITextFieldDelegate, ChangeD
         self.selectedModel!.note = self.notesTextField.text ?? ""
         
         //-- call API here
-        DataManager.sharedInstance.changeExpenseData(data: self.selectedModel!, isForEdit: isForEdit)
+        if Reachability.isConnectedToNetwork() {
+            DataManager.sharedInstance.changeExpenseData(data: self.selectedModel!, isForEdit: isForEdit)
+        }
+        else {
+            AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
+        }
     }
     
     //MARK: - text field delegate

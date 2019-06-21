@@ -80,10 +80,20 @@ class AdminPVEditViewController: UIViewController, UITextFieldDelegate {
         let nameValue: String = self.nameValueTextField.text!
         
         if self.isForVendor {
-            DataManager.sharedInstance.changeVendor(id: idValue, name: nameValue, isForEdit: isForEdit)
+            if Reachability.isConnectedToNetwork() {
+                DataManager.sharedInstance.changeVendor(id: idValue, name: nameValue, isForEdit: isForEdit)
+            }
+            else {
+                AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
+            }
         }
         else {
-            DataManager.sharedInstance.changePayment(id: idValue, name: nameValue, isForEdit: isForEdit)
+            if Reachability.isConnectedToNetwork() {
+                DataManager.sharedInstance.changePayment(id: idValue, name: nameValue, isForEdit: isForEdit)
+            }
+            else {
+                AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
+            }
         }
     }
     

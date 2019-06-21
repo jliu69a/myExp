@@ -82,7 +82,12 @@ class AdminLocationChecksViewController: UIViewController, CLLocationManagerDele
         self.mapView.addAnnotation(annotation)
         
         //-- convert to address
-        DataManager.sharedInstance.checkDeviceLocation(latitude: self.latitude, longitude: self.longitude)
+        if Reachability.isConnectedToNetwork() {
+            DataManager.sharedInstance.checkDeviceLocation(latitude: self.latitude, longitude: self.longitude)
+        }
+        else {
+            AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
+        }
     }
     
     //MARK: - notifcation

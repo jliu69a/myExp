@@ -75,7 +75,12 @@ class AdminReportDateViewController: UIViewController, UIPickerViewDataSource, U
         
         if self.isForDataExport {
             
-            DataManager.sharedInstance.exportData(month: selectedMonth, year: selectedYear, isMonthly: self.isForMonthly)
+            if Reachability.isConnectedToNetwork() {
+                DataManager.sharedInstance.exportData(month: selectedMonth, year: selectedYear, isMonthly: self.isForMonthly)
+            }
+            else {
+                AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
+            }
         }
         else {
             
@@ -88,7 +93,12 @@ class AdminReportDateViewController: UIViewController, UIPickerViewDataSource, U
             print("-> reports, month : '\(selectedMonth)' ")
             print("-> reports, year  : '\(selectedYear)' ")
             
-            DataManager.sharedInstance.createReports(month: selectedMonth, year: selectedYear, isForAnnual: !self.isForMonthly)
+            if Reachability.isConnectedToNetwork() {
+                DataManager.sharedInstance.createReports(month: selectedMonth, year: selectedYear, isForAnnual: !self.isForMonthly)
+            }
+            else {
+                AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
+            }
         }
     }
     
