@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -55,9 +55,11 @@
 		5ACF0265223F0F6800FBD3DC /* pandv.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0261223F0F6700FBD3DC /* pandv.storyboard */; };
 		5ACF0266223F0F6800FBD3DC /* admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0262223F0F6800FBD3DC /* admin.storyboard */; };
 		5ACF0267223F0F6800FBD3DC /* expenseHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0263223F0F6800FBD3DC /* expenseHome.storyboard */; };
+		FAFA36BCBD4EDB5412B1ED57 /* Pods_myExpenseTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8084A014FA81C182B874C59 /* Pods_myExpenseTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B66D535C0966E71B02A78DC /* Pods-myExpenseTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myExpenseTracker.debug.xcconfig"; path = "Target Support Files/Pods-myExpenseTracker/Pods-myExpenseTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		5A3E459422923D250087B1E4 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5A3E459622923D440087B1E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5A3E459822923E120087B1E4 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -108,6 +110,8 @@
 		5ACF0261223F0F6700FBD3DC /* pandv.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = pandv.storyboard; sourceTree = "<group>"; };
 		5ACF0262223F0F6800FBD3DC /* admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = admin.storyboard; sourceTree = "<group>"; };
 		5ACF0263223F0F6800FBD3DC /* expenseHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = expenseHome.storyboard; sourceTree = "<group>"; };
+		B802BF75536E766A536DC9B4 /* Pods-myExpenseTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myExpenseTracker.release.xcconfig"; path = "Target Support Files/Pods-myExpenseTracker/Pods-myExpenseTracker.release.xcconfig"; sourceTree = "<group>"; };
+		E8084A014FA81C182B874C59 /* Pods_myExpenseTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myExpenseTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 			files = (
 				5A3E459722923D440087B1E4 /* SystemConfiguration.framework in Frameworks */,
 				5ACF022E223F0DA200FBD3DC /* MapKit.framework in Frameworks */,
+				FAFA36BCBD4EDB5412B1ED57 /* Pods_myExpenseTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +134,7 @@
 				5ACF01FD223EFEC400FBD3DC /* myExpenseTracker */,
 				5ACF01FC223EFEC400FBD3DC /* Products */,
 				5ACF022C223F0DA100FBD3DC /* Frameworks */,
+				B74E466A073D6F55FA336D91 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,8 +253,18 @@
 			children = (
 				5A3E459622923D440087B1E4 /* SystemConfiguration.framework */,
 				5ACF022D223F0DA200FBD3DC /* MapKit.framework */,
+				E8084A014FA81C182B874C59 /* Pods_myExpenseTracker.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B74E466A073D6F55FA336D91 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B66D535C0966E71B02A78DC /* Pods-myExpenseTracker.debug.xcconfig */,
+				B802BF75536E766A536DC9B4 /* Pods-myExpenseTracker.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5ACF020D223EFEC500FBD3DC /* Build configuration list for PBXNativeTarget "myExpenseTracker" */;
 			buildPhases = (
+				80175F7FA1D414B1A9836BDB /* [CP] Check Pods Manifest.lock */,
 				5ACF01F7223EFEC400FBD3DC /* Sources */,
 				5ACF01F8223EFEC400FBD3DC /* Frameworks */,
 				5ACF01F9223EFEC400FBD3DC /* Resources */,
+				5630D17FD45621849C214E76 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -328,6 +346,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5630D17FD45621849C214E76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myExpenseTracker/Pods-myExpenseTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myExpenseTracker/Pods-myExpenseTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myExpenseTracker/Pods-myExpenseTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80175F7FA1D414B1A9836BDB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-myExpenseTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5ACF01F7223EFEC400FBD3DC /* Sources */ = {
@@ -508,10 +568,13 @@
 		};
 		5ACF020E223EFEC500FBD3DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B66D535C0966E71B02A78DC /* Pods-myExpenseTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WSH8T4CK9T;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = myExpenseTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -528,11 +591,14 @@
 		};
 		5ACF020F223EFEC500FBD3DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B802BF75536E766A536DC9B4 /* Pods-myExpenseTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WSH8T4CK9T;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = myExpenseTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

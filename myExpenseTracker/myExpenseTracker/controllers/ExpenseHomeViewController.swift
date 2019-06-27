@@ -293,9 +293,14 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         let okAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.default) { (action) in
             print("-> to delete, ID = \(self.selectedExpenseItem!.expId) ...")
             if Reachability.isConnectedToNetwork(){
-                DataManager.sharedInstance.changeExpenseData(data: self.selectedExpenseItem!, isForEdit: false)
+                
+                //-- HTTP POST, with query string
+                //DataManager.sharedInstance.changeExpenseData(data: self.selectedExpenseItem!, isForEdit: false)
+                
+                //-- HTTP POST, with JSON data
+                DataManager.sharedInstance.changeExpenseJsonData(data: self.selectedExpenseItem!, isForEdit: false)
             }
-            else{
+            else {
                 AlertManager.showAlert(title: "Error", message: "There is no Internet connection.", controller: self)
             }
         }

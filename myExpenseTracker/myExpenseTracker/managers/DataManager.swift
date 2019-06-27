@@ -84,6 +84,21 @@ class DataManager: NSObject {
         }
     }
     
+    func changeExpenseJsonData(data: ExpenseModel, isForEdit: Bool) {
+        
+        //-- send out HTTP POST request, with JSON data
+        //-- use Alamofire Framework
+        
+        ConnectionManager.saveExpenseJsonData(data: data, isForEdit: isForEdit) { (result)->() in
+            let dictionary = result as? [String: Any]
+            let expenses: [Any]? = dictionary!["data"] as? [Any]
+            let expenseData: [AnyObject] = expenses! as [AnyObject]
+            self.parseExpenses(data: expenseData)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kChangeExpensesDataNotification), object: nil)
+        }
+    }
+    
     //MARK: - expenses on date
     
     func expensesOnDate(date: String) {

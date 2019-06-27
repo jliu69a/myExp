@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Alamofire
 
 
 class ConnectionManager: NSObject {
@@ -91,6 +92,70 @@ class ConnectionManager: NSObject {
             completion(json!)
         }
         task.resume()
+    }
+    
+    class func saveExpenseJsonData(data: ExpenseModel, isForEdit: Bool, completion: @escaping (_ json: Any) -> Void) {
+        
+        //-- isEdit values, insert : -1
+        //-- isEdit values, delete : 0
+        //-- isEdit values, update : xxx
+        
+        //-- HTTP POST, with JSON data.  use Alamofire Framework
+        
+        var isEdit: String = ""
+        
+        if isForEdit {
+            isEdit = "xxx"
+        }
+        else if data.expId <= 0 {
+            isEdit = "-1"
+        }
+        else {
+            isEdit = "0"
+        }
+        
+        let df: DateFormatter = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        let currentDateText: String = df.string(from: DisplayManager.sharedInstance.selectedDate)
+        
+        let idText: String = String(format: "%d", data.expId)
+        let vendorIdText: String = String(format: "%d", data.vendorId)
+        let paymentIdText: String = String(format: "%d", data.paymentId)
+        let amountText: String = String(format: "%0.2f", data.amount)
+        
+        print("-> raw data, with JSON, amount = '\(data.amount)' ")
+        print("-> raw data, with JSON, notes = '\(data.note!)' ")
+        
+        let parameters: [String: Any] = ["id": (idText as Any), "date": (data.date! as Any), "time": (data.time! as Any), "vendorid": (vendorIdText as Any), "paymentid": (paymentIdText as Any), "amount": (amountText as Any), "note": (data.note! as Any), "isedit": (isEdit as Any), "current": (currentDateText as Any)]
+        
+        let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/edit_expenses.php", folder)
+        let url: URL = URL(string: urlString)!
+        
+        print("> ")
+        print("> add/edit, with JSON, dataText = '\(parameters)' ")
+        print("> ")
+        
+        Alamofire.request(url, method: HTTPMethod.post, parameters: parameters, encoding: URLEncoding.httpBody, headers: nil).validate().responseJSON { response in
+            guard response.result.isSuccess else {
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                completion("")
+                return
+            }
+            
+            let responseData: [String: Any]? = response.result.value as? [String: Any]
+            if responseData == nil {
+                completion("")
+                print("- ")
+                print("- response data : Null ")
+                print("- ")
+                return
+            }
+            
+            print("- ")
+            print("- response data : \(responseData!) ")
+            print("- ")
+            completion(responseData!)
+        }
     }
     
     class func loadExpensesOnDate(date: String, completion: @escaping (_ json: Any) -> Void) {

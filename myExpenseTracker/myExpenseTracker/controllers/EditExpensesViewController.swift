@@ -267,7 +267,12 @@ class EditExpensesViewController: UIViewController, UITextFieldDelegate, ChangeD
         
         //-- call API here
         if Reachability.isConnectedToNetwork() {
-            DataManager.sharedInstance.changeExpenseData(data: self.selectedModel!, isForEdit: isForEdit)
+            
+            //-- HTTP POST with query string
+            //DataManager.sharedInstance.changeExpenseData(data: self.selectedModel!, isForEdit: isForEdit)
+            
+            //-- HTTP POST with JSON data
+            DataManager.sharedInstance.changeExpenseJsonData(data: self.selectedModel!, isForEdit: isForEdit)
         }
         else {
             AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
