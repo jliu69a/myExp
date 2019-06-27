@@ -1,11 +1,8 @@
 <?php
 //http://www.mysohoplace.com/php_hdb/php_GL/prod/init_data.php
 
-$con = mysqli_connect("localhost","mysohopl_dbuser","Homehome1","mysohopl_homedb");
-
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysql_error();
-}
+// Create connection
+include('connection_header.php');
 
 $sql1 = "SELECT `id`, `payment` FROM `MyExp_Payments` ORDER BY `payment` ASC;";
 $sql2 = "SELECT `id`, `vendor` FROM `MyExp_Venders` ORDER BY `vendor` ASC;";

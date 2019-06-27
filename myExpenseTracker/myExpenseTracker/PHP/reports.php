@@ -1,11 +1,8 @@
 <?php
 // http://www.mysohoplace.com/php_hdb/php_GL/prod/reports.php
 
-$con = mysqli_connect("localhost","mysohopl_dbuser","Homehome1","mysohopl_homedb");
-
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysql_error();
-}
+// Create connection
+include('connection_header.php');
 
 if ($_GET) {
   $monthYear1 = mysqli_real_escape_string($con, $_GET['monthyear1']);
