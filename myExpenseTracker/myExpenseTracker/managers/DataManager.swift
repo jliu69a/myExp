@@ -126,9 +126,31 @@ class DataManager: NSObject {
         }
     }
     
+    func changeJsonPayment(id: String, name: String, isForEdit: String) {
+        
+        ConnectionManager.saveJsonPayment(id: id, name: name, isForEdit: isForEdit) { (result)->() in
+            let dictionary = result as? [String: Any]
+            let payments: [Any]? = dictionary!["data"] as? [Any]
+            let paymentData: [AnyObject] = payments! as [AnyObject]
+            self.parsePayments(data: paymentData)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kChangePaymentDataNotification), object: nil)
+        }
+    }
+
     func changeVendor(id: String, name: String, isForEdit: String) {
         
         ConnectionManager.saveVendor(id: id, name: name, isForEdit: isForEdit) { (result)->() in
+            let dictionary = result as? [String: Any]
+            let vendors: [Any]? = dictionary!["data"] as? [Any]
+            let vendorData: [AnyObject] = vendors! as [AnyObject]
+            self.parseVendors(data: vendorData)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kChangeVendorDateNotification), object: nil)
+        }
+    }
+    
+    func changeJsonVendor(id: String, name: String, isForEdit: String) {
+        
+        ConnectionManager.saveJsonVendor(id: id, name: name, isForEdit: isForEdit) { (result)->() in
             let dictionary = result as? [String: Any]
             let vendors: [Any]? = dictionary!["data"] as? [Any]
             let vendorData: [AnyObject] = vendors! as [AnyObject]

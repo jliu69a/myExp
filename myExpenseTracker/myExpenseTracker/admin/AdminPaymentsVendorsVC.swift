@@ -228,7 +228,12 @@ class AdminPaymentsVendorsVC: UIViewController, UITableViewDataSource, UITableVi
         
         if self.isForVendor {
             if Reachability.isConnectedToNetwork() {
-                DataManager.sharedInstance.changeVendor(id: idValue, name: nameValue, isForEdit: "0")
+                
+                //-- HTTP POST, with query string
+                //DataManager.sharedInstance.changeVendor(id: idValue, name: nameValue, isForEdit: "0")
+                
+                //-- HTTP POST, with Json data
+                DataManager.sharedInstance.changeJsonVendor(id: idValue, name: nameValue, isForEdit: "0")
             }
             else {
                 AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
@@ -236,7 +241,12 @@ class AdminPaymentsVendorsVC: UIViewController, UITableViewDataSource, UITableVi
         }
         else {
             if Reachability.isConnectedToNetwork() {
-                DataManager.sharedInstance.changePayment(id: idValue, name: nameValue, isForEdit: "0")
+                
+                //-- HTTP POST, with query string
+                //DataManager.sharedInstance.changePayment(id: idValue, name: nameValue, isForEdit: "0")
+                
+                //-- HTTP POST, with Json data
+                DataManager.sharedInstance.changeJsonPayment(id: idValue, name: nameValue, isForEdit: "0")
             }
             else {
                 AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)

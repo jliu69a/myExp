@@ -199,6 +199,34 @@ class ConnectionManager: NSObject {
         task.resume()
     }
     
+    class func saveJsonPayment(id: String, name: String, isForEdit: String, completion: @escaping (_ json: Any) -> Void) {
+        
+        var escapedName: NSString = name as NSString
+        escapedName = escapedName.replacingOccurrences(of: "&", with: "%26") as NSString
+        escapedName = escapedName.replacingOccurrences(of: " ", with: "%20") as NSString
+        
+        let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/change_payment.php", folder)
+        let url: URL = URL(string: urlString)!
+        
+        let parameters: [String: Any] = ["id": (id as Any), "name": (name as Any), "edit": (isForEdit as Any)]
+        
+        Alamofire.request(url, method: HTTPMethod.post, parameters: parameters, encoding: URLEncoding.httpBody, headers: nil).validate().responseJSON { response in
+            guard response.result.isSuccess else {
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                completion("")
+                return
+            }
+            
+            let responseData: [String: Any]? = response.result.value as? [String: Any]
+            if responseData == nil {
+                completion("")
+                return
+            }
+            
+            completion(responseData!)
+        }
+    }
+    
     class func saveVendor(id: String, name: String, isForEdit: String, completion: @escaping (_ json: Any) -> Void) {
         
         var escapedName: NSString = name as NSString
@@ -222,6 +250,34 @@ class ConnectionManager: NSObject {
             completion(json!)
         }
         task.resume()
+    }
+    
+    class func saveJsonVendor(id: String, name: String, isForEdit: String, completion: @escaping (_ json: Any) -> Void) {
+        
+        var escapedName: NSString = name as NSString
+        escapedName = escapedName.replacingOccurrences(of: "&", with: "%26") as NSString
+        escapedName = escapedName.replacingOccurrences(of: " ", with: "%20") as NSString
+        
+        let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/change_vendor.php", folder)
+        let url: URL = URL(string: urlString)!
+        
+        let parameters: [String: Any] = ["id": (id as Any), "name": (name as Any), "edit": (isForEdit as Any)]
+        
+        Alamofire.request(url, method: HTTPMethod.post, parameters: parameters, encoding: URLEncoding.httpBody, headers: nil).validate().responseJSON { response in
+            guard response.result.isSuccess else {
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                completion("")
+                return
+            }
+            
+            let responseData: [String: Any]? = response.result.value as? [String: Any]
+            if responseData == nil {
+                completion("")
+                return
+            }
+            
+            completion(responseData!)
+        }
     }
     
     //MARK: - reports

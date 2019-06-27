@@ -81,7 +81,12 @@ class AdminPVEditViewController: UIViewController, UITextFieldDelegate {
         
         if self.isForVendor {
             if Reachability.isConnectedToNetwork() {
-                DataManager.sharedInstance.changeVendor(id: idValue, name: nameValue, isForEdit: isForEdit)
+                
+                //-- HTTP POST, with query string
+                //DataManager.sharedInstance.changeVendor(id: idValue, name: nameValue, isForEdit: isForEdit)
+                
+                //-- HTTP POST, with Json data
+                DataManager.sharedInstance.changeJsonVendor(id: idValue, name: nameValue, isForEdit: isForEdit)
             }
             else {
                 AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
@@ -89,7 +94,12 @@ class AdminPVEditViewController: UIViewController, UITextFieldDelegate {
         }
         else {
             if Reachability.isConnectedToNetwork() {
-                DataManager.sharedInstance.changePayment(id: idValue, name: nameValue, isForEdit: isForEdit)
+                
+                //-- HTTP Post, with query string
+                //DataManager.sharedInstance.changePayment(id: idValue, name: nameValue, isForEdit: isForEdit)
+                
+                //-- HTTP POST, with Json data
+                DataManager.sharedInstance.changeJsonPayment(id: idValue, name: nameValue, isForEdit: isForEdit)
             }
             else {
                 AlertManager.showAlert(title: UserManager.sharedInstance.noInternetAlertTitle, message: UserManager.sharedInstance.noInternetAlertMessage, controller: self)
