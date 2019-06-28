@@ -152,9 +152,19 @@ class DataManager: NSObject {
         
         ConnectionManager.saveJsonVendor(id: id, name: name, isForEdit: isForEdit) { (result)->() in
             let dictionary = result as? [String: Any]
-            let vendors: [Any]? = dictionary!["data"] as? [Any]
-            let vendorData: [AnyObject] = vendors! as [AnyObject]
-            self.parseVendors(data: vendorData)
+            
+            let vendors: [Any]? = dictionary!["vendor"] as? [Any]
+            let top10: [Any]? = dictionary!["top10"] as? [Any]
+            
+            let vendorsData: [AnyObject] = vendors! as [AnyObject]
+            self.parseVendors(data: vendorsData)
+            
+            let top10Data: [AnyObject] = top10! as [AnyObject]
+            self.parseTop10(data: top10Data)
+            
+            //-- grouping vendors
+            self.groupingVendors(data: self.vendorsData!)
+            
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kChangeVendorDateNotification), object: nil)
         }
     }

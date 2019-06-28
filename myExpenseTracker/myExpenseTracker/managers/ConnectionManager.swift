@@ -176,10 +176,6 @@ class ConnectionManager: NSObject {
     
     class func savePayment(id: String, name: String, isForEdit: String, completion: @escaping (_ json: Any) -> Void) {
         
-        var escapedName: NSString = name as NSString
-        escapedName = escapedName.replacingOccurrences(of: "&", with: "%26") as NSString
-        escapedName = escapedName.replacingOccurrences(of: " ", with: "%20") as NSString
-        
         let dataText: String = String(format: "id=%@&name=%@&edit=%@", id, name, isForEdit)
         
         let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/change_payment.php", folder)
@@ -200,10 +196,6 @@ class ConnectionManager: NSObject {
     }
     
     class func saveJsonPayment(id: String, name: String, isForEdit: String, completion: @escaping (_ json: Any) -> Void) {
-        
-        var escapedName: NSString = name as NSString
-        escapedName = escapedName.replacingOccurrences(of: "&", with: "%26") as NSString
-        escapedName = escapedName.replacingOccurrences(of: " ", with: "%20") as NSString
         
         let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/change_payment.php", folder)
         let url: URL = URL(string: urlString)!
@@ -229,10 +221,6 @@ class ConnectionManager: NSObject {
     
     class func saveVendor(id: String, name: String, isForEdit: String, completion: @escaping (_ json: Any) -> Void) {
         
-        var escapedName: NSString = name as NSString
-        escapedName = escapedName.replacingOccurrences(of: "&", with: "%26") as NSString
-        escapedName = escapedName.replacingOccurrences(of: " ", with: "%20") as NSString
-        
         let dataText: String = String(format: "id=%@&name=%@&edit=%@", id, name, isForEdit)
         
         let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/change_vendor.php", folder)
@@ -253,10 +241,6 @@ class ConnectionManager: NSObject {
     }
     
     class func saveJsonVendor(id: String, name: String, isForEdit: String, completion: @escaping (_ json: Any) -> Void) {
-        
-        var escapedName: NSString = name as NSString
-        escapedName = escapedName.replacingOccurrences(of: "&", with: "%26") as NSString
-        escapedName = escapedName.replacingOccurrences(of: " ", with: "%20") as NSString
         
         let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/change_vendor.php", folder)
         let url: URL = URL(string: urlString)!
