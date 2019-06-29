@@ -36,6 +36,8 @@ class DataManager: NSObject {
     var locationState: String = ""
     var locationZipcode: String = ""
     
+    var totalReportValue: Float = 0
+    
     var currentDate: Date = Date()
     
     //MARK: - initial data
@@ -372,6 +374,7 @@ class DataManager: NSObject {
         }
         
         //-- vendors
+        self.totalReportValue = 0
         self.vendorReportData.removeAll()
         for item in vendors {
             let list: [String: AnyObject] = item as! [String: AnyObject]
@@ -391,6 +394,7 @@ class DataManager: NSObject {
             
             let value: Float = (amount! as NSString).floatValue
             model.value = String(format: "%0.2f", value)
+            self.totalReportValue += value
             self.vendorReportData.append(model)
         }
     }

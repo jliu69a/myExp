@@ -16,6 +16,8 @@ class AdminShowReportsViewController: UIViewController, UITableViewDataSource, U
     
     var paymentsList: [ReportModel] = []
     var vendorsList: [ReportModel] = []
+    
+    let formatter = NumberFormatter()
 
     //MARK: - init
     
@@ -26,6 +28,10 @@ class AdminShowReportsViewController: UIViewController, UITableViewDataSource, U
         self.vendorsList = DataManager.sharedInstance.vendorReportData
         
         self.tabeView.register(UINib(nibName: "AdminReportCell", bundle: nil), forCellReuseIdentifier: "CellId")
+        
+        self.formatter.locale = Locale.current
+        self.formatter.numberStyle = .currency
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,13 +42,17 @@ class AdminShowReportsViewController: UIViewController, UITableViewDataSource, U
         
         let df: DateFormatter = DateFormatter()
         if DataManager.sharedInstance.isReportForMonthly {
-            df.dateFormat = "MMM yyyy"
+            df.dateFormat = "M/yyyy"
         }
         else {
             df.dateFormat = "yyyy"
         }
         let dateText: String = df.string(from: DataManager.sharedInstance.reportDate)
-        self.dateLabel.text = String(format: "for: %@", dateText)
+        
+        let totalNumber: NSNumber = NSNumber(value: DataManager.sharedInstance.totalReportValue)
+        let totalText = self.formatter.string(from: totalNumber)
+        
+        self.dateLabel.text = String(format: "for %@,  total = %@", dateText, totalText!)
     }
     
     //MARK: - IBAction
@@ -81,13 +91,11 @@ class AdminShowReportsViewController: UIViewController, UITableViewDataSource, U
             model = self.vendorsList[indexPath.row]
         }
         
-        var amount: String = model!.value!
-        if amount.hasPrefix("-") {
-            amount = (amount as NSString).substring(from: 1)
-        }
+        let itemValue:Float = Float(model!.value!)!
+        let itemNumber: NSNumber = NSNumber(value: itemValue)
         
         cell!.nameLabel.text = model!.name!
-        cell!.valueLabel.text = amount
+        cell!.valueLabel.text = self.formatter.string(from: itemNumber)
         
         return cell!
     }
