@@ -346,12 +346,15 @@ class DataManager: NSObject {
     
     func parseReportsData(payments:[AnyObject], vendors:[AnyObject]) {
         
+        self.totalReportValue = 0
+        self.paymentReportData.removeAll()
+        self.vendorReportData.removeAll()
+
         if payments.count == 0 || vendors.count == 0 {
             return
         }
         
         //-- payments
-        self.paymentReportData.removeAll()
         for item in payments {
             let list: [String: AnyObject] = item as! [String: AnyObject]
             
@@ -374,8 +377,6 @@ class DataManager: NSObject {
         }
         
         //-- vendors
-        self.totalReportValue = 0
-        self.vendorReportData.removeAll()
         for item in vendors {
             let list: [String: AnyObject] = item as! [String: AnyObject]
             

@@ -203,6 +203,11 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     func showDataExport() {
         self.closeDateSelection()
         
+        if DataManager.sharedInstance.exportsList == nil || DataManager.sharedInstance.exportsList!.count == 0 {
+            AlertManager.showAlert(title: "Warning", message: "The export data is empty.", controller: self)
+            return
+        }
+        
         let csvText: String = UtilsManager.sharedInstance.createCsvFromExpenseData(data: DataManager.sharedInstance.exportsList!)
         self.emailCsvFile(csvText: csvText)
     }
