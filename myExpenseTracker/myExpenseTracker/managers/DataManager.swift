@@ -18,6 +18,11 @@ class DataManager: NSObject {
     var expensesData: [ExpenseModel]? = []
     var top10Data: [PAndVModel]? = []
     
+    var lookupExpensesData: [ExpenseModel]? = []
+    var lookupExpensesList: [String: [ExpenseModel]]? = [:]
+    var lookupTitleList: [String] = []
+    var monthsList: [String] = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
     var exportsList: [ExpenseModel]? = []
     
     var vendorGroups: [String: [PAndVModel]]? = [:]
@@ -112,6 +117,21 @@ class DataManager: NSObject {
             self.parseExpenses(data: expenseData)
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kChangeExpensesDataNotification), object: nil)
+        }
+    }
+    
+    //MARK: - vendor lookup
+    
+    func vendorLookup(year: String, vendorId: String) {
+        
+        ConnectionManager.vendorsLoopup(year: year, vendorId: vendorId) { (result)->() in
+            let dictionary = result as? [String: Any]
+            
+            let expenses: [Any]? = dictionary!["data"] as? [Any]
+            let expenseData: [AnyObject] = expenses! as [AnyObject]
+            
+            self.parseLookupExpenses(data: expenseData)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kVendorLookupWithYearNotification), object: nil)
         }
     }
     
@@ -305,6 +325,42 @@ class DataManager: NSObject {
         print("-> total expense data = \(self.expensesData!.count) ")
     }
     
+    func parseLookupExpenses(data: [AnyObject]) {
+        
+        self.lookupExpensesData!.removeAll()
+        if (data.count == 0) {
+            return
+        }
+        
+        for item in data {
+            let eachItem: [String: AnyObject] = item as! [String: AnyObject]
+            let model: ExpenseModel = ExpenseModel()
+            
+            let expIdString: String? = eachItem["id"] as? String
+            model.expId = (expIdString! as NSString).integerValue
+            
+            model.date = eachItem["date"] as? String
+            model.time = eachItem["time"] as? String
+            
+            let paymentIdString: String? = eachItem["payment_id"] as? String
+            model.paymentId = (paymentIdString! as NSString).integerValue
+            
+            let vendorIdString: String? = eachItem["vendor_id"] as? String
+            model.vendorId = (vendorIdString! as NSString).integerValue
+            
+            model.payment = eachItem["payment"] as? String
+            model.vendor = eachItem["vendor"] as? String
+            model.note = eachItem["note"] as? String
+            
+            let amountString: String? = eachItem["amount"] as? String
+            model.amount = (amountString! as NSString).floatValue
+            
+            self.lookupExpensesData!.append(model)
+        }
+        
+        self.groupingLookupVendors(data: self.lookupExpensesData!)
+    }
+    
     func groupingVendors(data: [PAndVModel]) {
         
         if data.count == 0 {
@@ -342,6 +398,50 @@ class DataManager: NSObject {
         let top10Title: String = "Top 10"
         self.vendorTop10GroupKeys?.insert(top10Title, at: 0)
         self.vendorGroups![top10Title] = self.top10Data!
+    }
+    
+    func groupingLookupVendors(data: [ExpenseModel]) {
+        
+        if data.count == 0 {
+            return
+        }
+        self.lookupExpensesList?.removeAll()
+        
+        for item in data {
+            let date: String = item.date!
+            let yearValue: String = self.yearOfDate(date: date)
+            
+            if !self.lookupTitleList.contains(yearValue) {
+                self.lookupTitleList.append(yearValue)
+            }
+            
+            var list: [ExpenseModel]? = self.lookupExpensesList![yearValue]
+            if list == nil {
+                list = []
+            }
+            list?.append(item)
+            
+            self.lookupExpensesList![yearValue] = list!
+        }
+        
+        //-- testing print
+        print("-> vendor lookup, title count = \(self.lookupTitleList.count), titles : \(self.lookupTitleList) ")
+        
+        for title in self.lookupTitleList {
+            let list: [ExpenseModel]? = self.lookupExpensesList![title]
+            print("-> vendor lookup, year = \(title), total count = \(list!.count) ")
+
+        }
+    }
+    
+    func yearOfDate(date: String) -> String {
+        
+        if date.count == 0 {
+            return date
+        }
+        let range: NSRange = NSMakeRange(5, 2)
+        let yearText: String = (date as NSString).substring(with: range)
+        return String(format: "%d", (Int(yearText)!))
     }
     
     func parseReportsData(payments:[AnyObject], vendors:[AnyObject]) {

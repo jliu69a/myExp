@@ -20,7 +20,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     
     let titlesList: [String] = ["Expense", "Misc"]
     let coreList: [String] = ["Change Color", "Edit Payments", "Edit Vendors", "Expense Report", "Export Data"]  //5
-    let miscList: [String] = ["Location Check", "Device Info"]
+    let miscList: [String] = ["Look Up Vendor", "Location Check", "Device Info"]
     
     //MARK: - init
     
@@ -113,10 +113,14 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         else {
             switch indexPath.row {
             case 0:
+                //-- lookup vendor
+                self.vendorLookup()
+                break
+            case 1:
                 //-- check location
                 self.checkLocations()
                 break
-            case 1:
+            case 2:
                 //-- check device
                 self.checkDeviceInfo()
                 break
@@ -236,6 +240,13 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     //MARK: - misc
+    
+    func vendorLookup() {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let vc: AdminVendorLookupViewController? = storyboard.instantiateViewController(withIdentifier: "AdminVendorLookupViewController") as? AdminVendorLookupViewController
+        self.navigationController!.pushViewController(vc!, animated: true)
+    }
     
     func checkLocations() {
         

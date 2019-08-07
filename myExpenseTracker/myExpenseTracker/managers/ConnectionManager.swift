@@ -13,7 +13,7 @@ import Alamofire
 
 class ConnectionManager: NSObject {
     
-    static let folder: String = "prod" //production use
+    static let folder: String = "home" //production use
     
     //MARK: - initial data
     
@@ -164,6 +164,29 @@ class ConnectionManager: NSObject {
         let url = URL(string: urlString)!
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            completion(json!)
+        }
+        task.resume()
+    }
+    
+    //MARK: - vendor lookup
+    
+    class func vendorsLoopup(year: String, vendorId: String, completion: @escaping (_ json: Any) -> Void) {
+        
+        let dataText: String = String(format: "year=%@&vendorid=%@", year, vendorId)
+        
+        let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/vendor_lookup.php", folder)
+        let url: URL = URL(string: urlString)!
+        
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        request.httpBody = dataText.data(using: .utf8)
+        
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             guard let data = data else { return }
             
             let json = try? JSONSerialization.jsonObject(with: data, options: [])
