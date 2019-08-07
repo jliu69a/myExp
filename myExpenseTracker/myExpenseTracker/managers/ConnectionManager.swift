@@ -13,7 +13,7 @@ import Alamofire
 
 class ConnectionManager: NSObject {
     
-    static let folder: String = "home" //production use
+    static let folder: String = "prod" //production use
     
     //MARK: - initial data
     
