@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AdminVendorLookupListingVCDelegate {
     
     //-- base view
     @IBOutlet weak var baseView: UIView!
@@ -29,8 +29,7 @@ class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var closeLookUpButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
-    
+    //-- other variables
     var rowsArray: [ExpenseModel]? = []
     var keysList: [String] = []
     var rowsGroups: [String: [ExpenseModel]]? = [:]
@@ -84,26 +83,44 @@ class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, 
     }
     
     @IBAction func changeVendorAction(_ sender: Any) {
-        //
+        self.selectVendor()
     }
     
     @IBAction func cancelAction(_ sender: Any) {
+        
+        DataManager.sharedInstance.lookupExpensesData!.removeAll()
+        DataManager.sharedInstance.lookupTitleList.removeAll()
+        DataManager.sharedInstance.lookupExpensesList!.removeAll()
+        
+        self.rowsArray = DataManager.sharedInstance.lookupExpensesData
+        self.keysList = DataManager.sharedInstance.lookupTitleList
+        self.rowsGroups = DataManager.sharedInstance.lookupExpensesList!
+        
         self.navigationController!.popViewController(animated: true)
     }
     
     @IBAction func lookupAction(_ sender: Any) {
-        
-        self.activityIndicator.startAnimating()
         self.processLookup()
     }
     
     @IBAction func closeLookupAction(_ sender: Any) {
         
         //-- on display view
+        self.rowsArray!.removeAll()
+        self.rowsGroups!.removeAll()
+        self.keysList.removeAll()
+        
+        self.tableView.reloadData()
         self.hideDisplayView()
         
-        self.rowsArray!.removeAll()
-        self.tableView.reloadData()
+        //-- on base view
+        df.dateFormat = "YYYY"
+        self.selectedYear = df.string(from: Date())
+        self.selectedYearLabel.text = String(format: "Selected Year : %@", self.selectedYear)
+        
+        self.selectedVendorId = "0"
+        self.selectedVendorIdLabel.text = String(format: "Selected Vendor ID : %@", self.selectedVendorId)
+
     }
     
     //MARK: - table view source
@@ -163,6 +180,14 @@ class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    //MARK: - select vendor delegate
+    
+    func didSelectVendor(item: PAndVModel) {
+        
+        self.selectedVendorId = item.pvId!
+        self.selectedVendorIdLabel.text = String(format: "Selected Vendor ID : %@", self.selectedVendorId)
+    }
 
     //MARK: - notifications
     
@@ -207,12 +232,34 @@ class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, 
             self.selectedVendorId = "0"
         }
         
-        print("- ")
-        print("- vendor lookup, year = \(self.selectedYear) ")
-        print("- vendor lookup, vendor ID = \(self.selectedVendorId) ")
-        print("- ")
-
-        DataManager.sharedInstance.vendorLookup(year: self.selectedYear, vendorId: self.selectedVendorId)
+        if Int(self.selectedVendorId)! > 0 {
+            
+            self.activityIndicator.startAnimating()
+            DataManager.sharedInstance.vendorLookup(year: self.selectedYear, vendorId: self.selectedVendorId)
+        }
+        else {
+            
+            DataManager.sharedInstance.lookupExpensesData!.removeAll()
+            DataManager.sharedInstance.lookupTitleList.removeAll()
+            DataManager.sharedInstance.lookupExpensesList!.removeAll()
+            
+            self.rowsArray = DataManager.sharedInstance.lookupExpensesData
+            self.keysList = DataManager.sharedInstance.lookupTitleList
+            self.rowsGroups = DataManager.sharedInstance.lookupExpensesList!
+            
+            self.tableView.reloadData()
+            self.showDisplayView()
+        }
+    }
+    
+    //MARK: - select vendor
+    
+    func selectVendor() {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let vc: AdminVendorLookupListingVC? = storyboard.instantiateViewController(withIdentifier: "AdminVendorLookupListingVC") as? AdminVendorLookupListingVC
+        vc!.delegate = self
+        self.navigationController!.pushViewController(vc!, animated: true)
     }
     
 }

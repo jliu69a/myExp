@@ -328,6 +328,9 @@ class DataManager: NSObject {
     func parseLookupExpenses(data: [AnyObject]) {
         
         self.lookupExpensesData!.removeAll()
+        self.lookupExpensesList!.removeAll()
+        self.lookupTitleList.removeAll()
+        
         if (data.count == 0) {
             return
         }
@@ -402,10 +405,12 @@ class DataManager: NSObject {
     
     func groupingLookupVendors(data: [ExpenseModel]) {
         
+        self.lookupExpensesList!.removeAll()
+        self.lookupTitleList.removeAll()
+        
         if data.count == 0 {
             return
         }
-        self.lookupExpensesList?.removeAll()
         
         for item in data {
             let date: String = item.date!
