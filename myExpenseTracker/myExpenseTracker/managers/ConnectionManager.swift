@@ -189,7 +189,11 @@ class ConnectionManager: NSObject {
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             guard let data = data else { return }
             
-            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            var json = try? JSONSerialization.jsonObject(with: data, options: [])
+            print("-> is json nil? \(json == nil)")
+            if json == nil {
+                json = [:]
+            }
             completion(json!)
         }
         task.resume()

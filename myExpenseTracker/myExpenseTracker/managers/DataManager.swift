@@ -128,9 +128,10 @@ class DataManager: NSObject {
             let dictionary = result as? [String: Any]
             
             let expenses: [Any]? = dictionary!["data"] as? [Any]
-            let expenseData: [AnyObject] = expenses! as [AnyObject]
-            
-            self.parseLookupExpenses(data: expenseData)
+            if expenses != nil {
+                let expenseData: [AnyObject] = expenses! as [AnyObject]
+                self.parseLookupExpenses(data: expenseData)
+            }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kVendorLookupWithYearNotification), object: nil)
         }
     }
