@@ -35,4 +35,16 @@ class UtilsManager: NSObject {
         controller.present(alert, animated: true, completion: nil)
     }
     
+    func topBarLabel(barTitle: String, barFrame: CGRect) -> UILabel {
+        
+        let barLabel: UILabel = UILabel(frame: barFrame)
+        barLabel.backgroundColor = UIColor.clear
+        barLabel.textAlignment = NSTextAlignment.center
+        barLabel.font = UIFont.systemFont(ofSize: 16)
+        barLabel.textColor = UIColor.black
+        barLabel.text = barTitle
+        
+        return barLabel
+    }
+    
 }
