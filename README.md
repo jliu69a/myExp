@@ -1,6 +1,8 @@
 # myExp 
-This app is for saving my daily expenses, from small as cup of tea to large as flat TV.  The purpose is to help me tracking all of my expenses, and I can make a better decision on my future expenses.
+This is my personal app that helps me tracking my daily expenses, big and small.  And help me manager my budget better.
 
-It also has the reporting features for monthly and annually, based on the selection date.  Each report is breaking down into the total amount of expenses for every payment type, and every vendor.
+All of the data are saved into server side database, all of the scripts are in the PHP folder.
 
-In here, it has all of the iOS Swift source code for the app, also has the PHP scripts for the server side functions.
+In the admin section, it has the reporting feature for both monthly and annually.  The report has separated sections for all payment types and vendors, respectively.
+
+It also has some miscellaneous features, like the location checking for indicating the current location of mobile device.
