@@ -20,6 +20,7 @@ class DataManager: NSObject {
     
     var lookupExpensesData: [ExpenseModel]? = []
     var lookupExpensesList: [String: [ExpenseModel]]? = [:]
+    var lookupExpensesTotal: [String: String]? = [:]
     var lookupTitleList: [String] = []
     var monthsList: [String] = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -435,8 +436,17 @@ class DataManager: NSObject {
         
         for title in self.lookupTitleList {
             let list: [ExpenseModel]? = self.lookupExpensesList![title]
-            print("-> vendor lookup, year = \(title), total count = \(list!.count) ")
-
+            
+            //-- get total of each
+            var totalAmount: Float = 0
+            for each in list! {
+                totalAmount += each.amount
+            }
+            
+            let totalAmountTxt: String = String(format: "%0.2f", totalAmount)
+            self.lookupExpensesTotal![title] = totalAmountTxt
+            
+            print("-> vendor lookup, month = \(title), total count = \(list!.count) ")
         }
     }
     

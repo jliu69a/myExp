@@ -100,7 +100,18 @@ class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, 
     }
     
     @IBAction func lookupAction(_ sender: Any) {
-        self.processLookup()
+        
+        if self.selectedVendorId == "0" {
+            let alert: UIAlertController = UIAlertController(title: "Error", message: "You need to select a vendor.", preferredStyle: UIAlertController.Style.alert)
+            
+            let cancelAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        else {
+            self.processLookup()
+        }
     }
     
     @IBAction func closeLookupAction(_ sender: Any) {
@@ -165,7 +176,11 @@ class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, 
         let keyValue: Int = Int(key)!
         let title: String = DataManager.sharedInstance.monthsList[keyValue]
         
-        return title
+        let keyValueTxt: String = String(keyValue)
+        let amountTxt: String = DataManager.sharedInstance.lookupExpensesTotal![keyValueTxt]!;
+        let displayTitle: String = String(format: "%@, total: $%@", title, amountTxt)
+        
+        return displayTitle
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
