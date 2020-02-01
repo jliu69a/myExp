@@ -10,6 +10,7 @@
 		5A3E459522923D250087B1E4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E459422923D250087B1E4 /* Reachability.swift */; };
 		5A3E459722923D440087B1E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3E459622923D440087B1E4 /* SystemConfiguration.framework */; };
 		5A3E459922923E120087B1E4 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E459822923E120087B1E4 /* AlertManager.swift */; };
+		5A4605F823E523B80010003A /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A4605F723E523B80010003A /* readme.txt */; };
 		5A8149A122C56034004EF747 /* expense_export.php in Resources */ = {isa = PBXBuildFile; fileRef = 5A81499922C56034004EF747 /* expense_export.php */; };
 		5A8149A222C56034004EF747 /* edit_expenses.php in Resources */ = {isa = PBXBuildFile; fileRef = 5A81499A22C56034004EF747 /* edit_expenses.php */; };
 		5A8149A322C56034004EF747 /* reports.php in Resources */ = {isa = PBXBuildFile; fileRef = 5A81499B22C56034004EF747 /* reports.php */; };
@@ -74,6 +75,7 @@
 		5A3E459422923D250087B1E4 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5A3E459622923D440087B1E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5A3E459822923E120087B1E4 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		5A4605F723E523B80010003A /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		5A81499922C56034004EF747 /* expense_export.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = expense_export.php; sourceTree = "<group>"; };
 		5A81499A22C56034004EF747 /* edit_expenses.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = edit_expenses.php; sourceTree = "<group>"; };
 		5A81499B22C56034004EF747 /* reports.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = reports.php; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A4605F623E5234B0010003A /* notes */ = {
+			isa = PBXGroup;
+			children = (
+				5A4605F723E523B80010003A /* readme.txt */,
+			);
+			path = notes;
+			sourceTree = "<group>";
+		};
 		5A81499822C55FF4004EF747 /* PHP */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,13 +208,14 @@
 			children = (
 				5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */,
 				5ACF0200223EFEC400FBD3DC /* ViewController.swift */,
-				5ACF0210223EFFD700FBD3DC /* admin */,
-				5A817FB022FA18D00020FA4F /* helper */,
 				5ACF0211223EFFE800FBD3DC /* controllers */,
-				5ACF0212223EFFF600FBD3DC /* images */,
 				5ACF0213223F000600FBD3DC /* managers */,
 				5ACF0214223F001700FBD3DC /* models */,
 				5ACF0215223F002600FBD3DC /* storyboards */,
+				5ACF0210223EFFD700FBD3DC /* admin */,
+				5A817FB022FA18D00020FA4F /* helper */,
+				5ACF0212223EFFF600FBD3DC /* images */,
+				5A4605F623E5234B0010003A /* notes */,
 				5A81499822C55FF4004EF747 /* PHP */,
 				5ACF0202223EFEC400FBD3DC /* Main.storyboard */,
 				5ACF0205223EFEC500FBD3DC /* Assets.xcassets */,
@@ -382,6 +393,7 @@
 				5ACF0209223EFEC500FBD3DC /* LaunchScreen.storyboard in Resources */,
 				5ACF0206223EFEC500FBD3DC /* Assets.xcassets in Resources */,
 				5ACF0224223F0CC400FBD3DC /* myExp_back.png in Resources */,
+				5A4605F823E523B80010003A /* readme.txt in Resources */,
 				5ACF0223223F0CC400FBD3DC /* myExp_more.png in Resources */,
 				5ACF0241223F0EF100FBD3DC /* PAndVCell.xib in Resources */,
 				5A8149A422C56034004EF747 /* change_payment.php in Resources */,

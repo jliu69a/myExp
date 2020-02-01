@@ -12,6 +12,8 @@ class DisplayManager: NSObject {
     
     static let sharedInstance = DisplayManager()
     
+    //MARK: - properties
+    
     var selectedDate: Date = Date()
     
     let beginYear: Int = 1950
@@ -54,6 +56,7 @@ class DisplayManager: NSObject {
     
     var adminList: [[String: AnyObject]] = []
     
+    //MARK: - functions
     
     func createBackButton() {
         
