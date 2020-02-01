@@ -8,5 +8,7 @@ target 'myExpenseTracker' do
 
   # Pods for myExpenseTracker
   pod 'Alamofire', '~> 4.5'
+  pod 'SwiftyJSON'
+  pod "PromiseKit"
 
 end
