@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0E0CD223E75366000A8BD1 /* Connect2Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E0CD123E75366000A8BD1 /* Connect2Manager.swift */; };
+		5A0E0CD523E755AF000A8BD1 /* DataHandlingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E0CD423E755AF000A8BD1 /* DataHandlingManager.swift */; };
+		5A0E0CD723E75622000A8BD1 /* JsonHelpersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E0CD623E75622000A8BD1 /* JsonHelpersManager.swift */; };
 		5A3E459522923D250087B1E4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E459422923D250087B1E4 /* Reachability.swift */; };
 		5A3E459722923D440087B1E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3E459622923D440087B1E4 /* SystemConfiguration.framework */; };
 		5A3E459922923E120087B1E4 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E459822923E120087B1E4 /* AlertManager.swift */; };
@@ -72,6 +75,9 @@
 
 /* Begin PBXFileReference section */
 		2B66D535C0966E71B02A78DC /* Pods-myExpenseTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myExpenseTracker.debug.xcconfig"; path = "Target Support Files/Pods-myExpenseTracker/Pods-myExpenseTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		5A0E0CD123E75366000A8BD1 /* Connect2Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect2Manager.swift; sourceTree = "<group>"; };
+		5A0E0CD423E755AF000A8BD1 /* DataHandlingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlingManager.swift; sourceTree = "<group>"; };
+		5A0E0CD623E75622000A8BD1 /* JsonHelpersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelpersManager.swift; sourceTree = "<group>"; };
 		5A3E459422923D250087B1E4 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5A3E459622923D440087B1E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5A3E459822923E120087B1E4 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -152,6 +158,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A0E0CD323E75574000A8BD1 /* managers2 */ = {
+			isa = PBXGroup;
+			children = (
+				5A0E0CD123E75366000A8BD1 /* Connect2Manager.swift */,
+				5A0E0CD423E755AF000A8BD1 /* DataHandlingManager.swift */,
+				5A0E0CD623E75622000A8BD1 /* JsonHelpersManager.swift */,
+			);
+			path = managers2;
+			sourceTree = "<group>";
+		};
 		5A4605F623E5234B0010003A /* notes */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +226,7 @@
 				5ACF0200223EFEC400FBD3DC /* ViewController.swift */,
 				5ACF0211223EFFE800FBD3DC /* controllers */,
 				5ACF0213223F000600FBD3DC /* managers */,
+				5A0E0CD323E75574000A8BD1 /* managers2 */,
 				5ACF0214223F001700FBD3DC /* models */,
 				5ACF0215223F002600FBD3DC /* storyboards */,
 				5ACF0210223EFFD700FBD3DC /* admin */,
@@ -361,6 +378,7 @@
 				TargetAttributes = {
 					5ACF01FA223EFEC400FBD3DC = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -475,8 +493,10 @@
 				5ACF023C223F0EF100FBD3DC /* PAndVCell.swift in Sources */,
 				5ACF0257223F0F1400FBD3DC /* AdminReportDateViewController.swift in Sources */,
 				5ACF0243223F0EF100FBD3DC /* EditExpensesViewController.swift in Sources */,
+				5A0E0CD723E75622000A8BD1 /* JsonHelpersManager.swift in Sources */,
 				5ACF023D223F0EF100FBD3DC /* ExpenseCell.swift in Sources */,
 				5ACF025D223F0F1400FBD3DC /* AdminLocationChecksViewController.swift in Sources */,
+				5A0E0CD523E755AF000A8BD1 /* DataHandlingManager.swift in Sources */,
 				5ACF0219223F0BDB00FBD3DC /* PAndVModel.swift in Sources */,
 				5ACF021B223F0BFD00FBD3DC /* ReportModel.swift in Sources */,
 				5A817FB222FA19280020FA4F /* AdminVendorLookupViewController.swift in Sources */,
@@ -494,6 +514,7 @@
 				5ACF0242223F0EF100FBD3DC /* ChangeDateViewController.swift in Sources */,
 				5A817FB422FA7A830020FA4F /* AdminVendorLookupListingVC.swift in Sources */,
 				5ACF0258223F0F1400FBD3DC /* AdminColorsViewController.swift in Sources */,
+				5A0E0CD223E75366000A8BD1 /* Connect2Manager.swift in Sources */,
 				5ACF0201223EFEC400FBD3DC /* ViewController.swift in Sources */,
 				5ACF0229223F0D3000FBD3DC /* UserManager.swift in Sources */,
 				5ACF01FF223EFEC400FBD3DC /* AppDelegate.swift in Sources */,
