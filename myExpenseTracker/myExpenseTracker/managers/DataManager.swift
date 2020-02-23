@@ -36,6 +36,9 @@ class DataManager: NSObject {
     var reportDateTitle: String = ""
     var isReportForMonthly: Bool = false
     
+    var locationLatitude: String = ""
+    var locationLongitude: String = ""
+    
     var locationFullAddress: String = ""
     var locationStreet: String = ""
     var locationCity: String = ""

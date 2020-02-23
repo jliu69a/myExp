@@ -69,6 +69,9 @@ class AdminLocationChecksViewController: UIViewController, CLLocationManagerDele
         self.longitude = locValue.longitude
         self.locationManager.stopUpdatingLocation()
         
+        DataManager.sharedInstance.locationLatitude = "\(self.latitude)"
+        DataManager.sharedInstance.locationLongitude = "\(self.longitude)"
+        
         print("-> latitude = \(self.latitude) | longitude = \(self.longitude) ")
         
         //-- map view: zoom in
@@ -95,7 +98,7 @@ class AdminLocationChecksViewController: UIViewController, CLLocationManagerDele
     @objc func didHaveFullAddress() {
         
         DispatchQueue.main.async {
-            let displayString: String = String(format: "\n\nStreet: %@ \n\nCity: %@\n\nState: %@\n\nZip Code: %@", DataManager.sharedInstance.locationStreet, DataManager.sharedInstance.locationCity, DataManager.sharedInstance.locationState, DataManager.sharedInstance.locationZipcode)
+            let displayString: String = String(format: "\nLatitude: %@ \n\nLongitude: %@ \n\n\nStreet: %@ \n\nCity: %@\n\nState: %@\n\nZip Code: %@", DataManager.sharedInstance.locationLatitude, DataManager.sharedInstance.locationLongitude, DataManager.sharedInstance.locationStreet, DataManager.sharedInstance.locationCity, DataManager.sharedInstance.locationState, DataManager.sharedInstance.locationZipcode)
             self.textView.text = displayString
         }
     }
