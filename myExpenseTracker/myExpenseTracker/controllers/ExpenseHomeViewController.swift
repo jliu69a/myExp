@@ -115,9 +115,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         self.changeDateVC = storyboard.instantiateViewController(withIdentifier: "ChangeDateViewController") as? ChangeDateViewController
         self.changeDateVC!.delegate = self
         self.changeDateVC!.currentDate = DisplayManager.sharedInstance.selectedDate
-        
-        self.view.addSubview(self.changeDateVC!.view)
-        self.addChild(self.changeDateVC!)
+        self.present(self.changeDateVC!, animated: true, completion: nil)
     }
     
     @IBAction func addNewAction(_ sender: Any) {
@@ -208,9 +206,11 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func closeChangeDateView() {
-        self.changeDateVC!.view.removeFromSuperview()
-        self.changeDateVC!.removeFromParent()
-        self.changeDateVC = nil
+        
+        if self.changeDateVC != nil {
+            self.changeDateVC!.dismiss(animated: true, completion: nil)
+            self.changeDateVC = nil
+        }
     }
     
     //MARK: - table view source
@@ -259,7 +259,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         
         let alert: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         
-        let deleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.default) { (action) in
+        let deleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { (action) in
             print("-> to delete, ID = \(self.selectedExpenseItem!.expId) ...")
             self.deleteSelectedItem()
         }
@@ -290,7 +290,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         
         let alert: UIAlertController = UIAlertController(title: title, message: nil, preferredStyle: UIAlertController.Style.alert)
         
-        let okAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.default) { (action) in
+        let okAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { (action) in
             print("-> to delete, ID = \(self.selectedExpenseItem!.expId) ...")
             if Reachability.isConnectedToNetwork(){
                 
