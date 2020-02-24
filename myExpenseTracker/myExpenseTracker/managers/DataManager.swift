@@ -81,6 +81,31 @@ class DataManager: NSObject {
         }
     }
     
+    func refreshInitialData() {
+        
+        ConnectionManager.loadInitialDataWithCallBack { (result)->() in
+            let dictionary = result as? [String: Any]
+            
+            let payments: [Any]? = dictionary!["payment"] as? [Any]
+            let vendors: [Any]? = dictionary!["vendor"] as? [Any]
+            let top10: [Any]? = dictionary!["top10"] as? [Any]
+            
+            let paymentsData: [AnyObject] = payments! as [AnyObject]
+            self.parsePayments(data: paymentsData)
+            
+            let vendorsData: [AnyObject] = vendors! as [AnyObject]
+            self.parseVendors(data: vendorsData)
+            
+            let top10Data: [AnyObject] = top10! as [AnyObject]
+            self.parseTop10(data: top10Data)
+            
+            //-- grouping vendors
+            self.groupingVendors(data: self.vendorsData!)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kRefreshBackendDataNotification), object: nil)
+        }
+    }
+
     //MARK: - change expense
     
     func changeExpenseData(data: ExpenseModel, isForEdit: Bool) {

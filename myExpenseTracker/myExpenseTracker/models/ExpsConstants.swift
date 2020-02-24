@@ -13,6 +13,8 @@ struct Constant {
     static let kInitialDataLoadedNotification: String = "Initial_Data_Loaded_Notification"
     static let kChangeExpensesDataNotification: String = "Change_Expenses_Data_Notification"
     
+    static let kRefreshBackendDataNotification: String = "Refresh_Backend_Data_Notification"
+    
     static let kChangePaymentDataNotification: String = "Change_Payment_Data_Notification"
     static let kChangeVendorDateNotification: String = "Change_Vendor_Date_Notification"
     
