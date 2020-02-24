@@ -656,7 +656,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.19;
-				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker5";
+				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker";
 				PRODUCT_NAME = MyExp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -682,7 +682,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.19;
-				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker5";
+				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker";
 				PRODUCT_NAME = MyExp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
