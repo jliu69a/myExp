@@ -172,7 +172,7 @@ class AdminPaymentsVendorsVC: UIViewController, UITableViewDataSource, UITableVi
             self.changeModel(isNew: false)
         }
         
-        let deleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.default) { (action) in
+        let deleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { (action) in
             self.confirmToDelete()
         }
         
@@ -213,7 +213,7 @@ class AdminPaymentsVendorsVC: UIViewController, UITableViewDataSource, UITableVi
         
         let alert: UIAlertController = UIAlertController(title: title, message: nil, preferredStyle: UIAlertController.Style.alert)
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-        let okAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.default) { (action) in
+        let okAction: UIAlertAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { (action) in
             self.deleteModel()
         }
         alert.addAction(okAction)
