@@ -37,7 +37,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewWillAppear(animated)
         
         let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
-        self.versionLabel.text = String(format: "MyExp 5, Version: %@", appVersion!)
+        self.versionLabel.text = String(format: "Version: %@", appVersion!)
         
         self.tableView.layer.borderColor = UIColor.black.cgColor
         self.tableView.layer.borderWidth = 0.5

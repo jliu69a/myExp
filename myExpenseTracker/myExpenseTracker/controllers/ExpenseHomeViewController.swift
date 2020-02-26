@@ -77,7 +77,11 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadExpenses), name: NSNotification.Name(rawValue: Constant.kInitialDataLoadedNotification), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(finishChangingData), name: NSNotification.Name(rawValue: Constant.kChangeExpensesDataNotification), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshBackendData), name: NSNotification.Name(rawValue: Constant.kRefreshBackendDataNotification), object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,8 +100,8 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         self.showDate()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - IBAction
@@ -172,6 +176,23 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
             self.activityIndicator.stopAnimating()
             self.showExpensesTotal()
         }
+        
+        //-- reload all payments, vendors and top 10s.
+        DispatchQueue.global(qos: .background).async {
+            DataManager.sharedInstance.refreshInitialData()
+        }
+    }
+    
+    @objc func refreshBackendData() {
+        
+        let allPayments = DataManager.sharedInstance.paymentsData ?? []
+        let allVendors = DataManager.sharedInstance.vendorsData ?? []
+        let allTop10s = DataManager.sharedInstance.top10Data ?? []
+        print("> ")
+        print("> after refresh, total payments = \(allPayments.count) ")
+        print("> after refresh, total vendors = \(allVendors.count) ")
+        print("> after refresh, total top 10s = \(allTop10s.count) ")
+        print("> ")
     }
     
     //MARK: - change date delegate

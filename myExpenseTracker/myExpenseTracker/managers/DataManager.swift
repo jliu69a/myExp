@@ -81,24 +81,34 @@ class DataManager: NSObject {
         }
     }
     
-    //MARK: - change expense
-    
-    func changeExpenseData(data: ExpenseModel, isForEdit: Bool) {
+    func refreshInitialData() {
         
-        ConnectionManager.saveExpenseData(data: data, isForEdit: isForEdit) { (result)->() in
+        ConnectionManager.loadInitialDataWithCallBack { (result)->() in
             let dictionary = result as? [String: Any]
-            let expenses: [Any]? = dictionary!["data"] as? [Any]
-            let expenseData: [AnyObject] = expenses! as [AnyObject]
-            self.parseExpenses(data: expenseData)
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kChangeExpensesDataNotification), object: nil)
+            let payments: [Any]? = dictionary!["payment"] as? [Any]
+            let vendors: [Any]? = dictionary!["vendor"] as? [Any]
+            let top10: [Any]? = dictionary!["top10"] as? [Any]
+            
+            let paymentsData: [AnyObject] = payments! as [AnyObject]
+            self.parsePayments(data: paymentsData)
+            
+            let vendorsData: [AnyObject] = vendors! as [AnyObject]
+            self.parseVendors(data: vendorsData)
+            
+            let top10Data: [AnyObject] = top10! as [AnyObject]
+            self.parseTop10(data: top10Data)
+            
+            //-- grouping vendors
+            self.groupingVendors(data: self.vendorsData!)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kRefreshBackendDataNotification), object: nil)
         }
     }
+
+    //MARK: - change expense
     
     func changeExpenseJsonData(data: ExpenseModel, isForEdit: Bool) {
-        
-        //-- send out HTTP POST request, with JSON data
-        //-- use Alamofire Framework
         
         ConnectionManager.saveExpenseJsonData(data: data, isForEdit: isForEdit) { (result)->() in
             let dictionary = result as? [String: Any]
@@ -142,17 +152,6 @@ class DataManager: NSObject {
     
     //MARK: - payments & vendors
     
-    func changePayment(id: String, name: String, isForEdit: String) {
-        
-        ConnectionManager.savePayment(id: id, name: name, isForEdit: isForEdit) { (result)->() in
-            let dictionary = result as? [String: Any]
-            let payments: [Any]? = dictionary!["data"] as? [Any]
-            let paymentData: [AnyObject] = payments! as [AnyObject]
-            self.parsePayments(data: paymentData)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kChangePaymentDataNotification), object: nil)
-        }
-    }
-    
     func changeJsonPayment(id: String, name: String, isForEdit: String) {
         
         ConnectionManager.saveJsonPayment(id: id, name: name, isForEdit: isForEdit) { (result)->() in
@@ -164,17 +163,6 @@ class DataManager: NSObject {
         }
     }
 
-    func changeVendor(id: String, name: String, isForEdit: String) {
-        
-        ConnectionManager.saveVendor(id: id, name: name, isForEdit: isForEdit) { (result)->() in
-            let dictionary = result as? [String: Any]
-            let vendors: [Any]? = dictionary!["data"] as? [Any]
-            let vendorData: [AnyObject] = vendors! as [AnyObject]
-            self.parseVendors(data: vendorData)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kChangeVendorDateNotification), object: nil)
-        }
-    }
-    
     func changeJsonVendor(id: String, name: String, isForEdit: String) {
         
         ConnectionManager.saveJsonVendor(id: id, name: name, isForEdit: isForEdit) { (result)->() in
