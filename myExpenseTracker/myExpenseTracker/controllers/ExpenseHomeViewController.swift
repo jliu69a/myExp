@@ -29,6 +29,8 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.testings()
+        
         DisplayManager.sharedInstance.createBackButton()
         DisplayManager.sharedInstance.createMoreButton()
         DisplayManager.sharedInstance.createYearsAndMonths()
@@ -334,6 +336,29 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         alert.addAction(cancelAction)
 
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: - testing
+    
+    func testings() {
+        
+        DL_DataManager.sharedInstance.generateAllMonths()
+        DL_DataManager.sharedInstance.generateAllYears()
+        print("> ")
+        print("> all months : \(DL_DataManager.sharedInstance.allMonthsList) ")
+        print("> all years  : \(DL_DataManager.sharedInstance.allYearsList) ")
+        print("> ")
+        
+        DL_DataManager.sharedInstance.generateMonthsAndDaysDisplay(year: 2020, month: 4)
+        print("- ")
+        print("- total days in month = \(DL_DataManager.sharedInstance.totalDaysInMonth) ")
+        print("- display list : \(DL_DataManager.sharedInstance.monthDayDisplayList) ")
+        print("- ")
+        
+        DL_DataManager.sharedInstance.lookupInitialData()
+        print("> ")
+        print("> all expenses items : \(DL_DataManager.sharedInstance.lookupExpenseDict) ")
+        print("> ")
     }
     
 }
