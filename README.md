@@ -1,4 +1,9 @@
 # myExp 
+
+in this version, it will add in the feature for data lookup.  with the collection views of all the dates, and the expense items for each day.
+
+//
+
 This is my personal app that helps me tracking my daily expenses, big and small.  And help me manager my budget better.
 
 All of the data are saved into server side database, all of the scripts are in the PHP folder.
