@@ -29,8 +29,6 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.testings()
-        
         DisplayManager.sharedInstance.createBackButton()
         DisplayManager.sharedInstance.createMoreButton()
         DisplayManager.sharedInstance.createYearsAndMonths()
@@ -164,6 +162,9 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
             self.showExpensesTotal()
+            
+            //-- testing
+            self.testings()
         }
     }
     
@@ -359,6 +360,13 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         print("> ")
         print("> all expenses items : \(DL_DataManager.sharedInstance.lookupExpenseDict) ")
         print("> ")
+        
+        let df: DateFormatter = DateFormatter()
+        df.dateFormat = "yyyy-MM"
+        let dateString = df.string(from: Date())
+        
+        DL_DataManager.sharedInstance.lookupExpensesByDate(date: dateString)
+        
     }
     
 }

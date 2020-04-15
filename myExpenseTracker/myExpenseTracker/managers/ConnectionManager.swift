@@ -13,7 +13,7 @@ import Alamofire
 
 class ConnectionManager: NSObject {
     
-    static let folder: String = "prod" //production use
+    static let folder: String = "home" //production use
     
     //MARK: - initial data
     
@@ -253,6 +253,22 @@ class ConnectionManager: NSObject {
         
         let isMonthlyText: String = isMonthly ? "1" : "0"
         let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/expense_export.php?year=%@&month=%@&ismonthly=%@", folder, year, month, isMonthlyText)
+        let url = URL(string: urlString)!
+        
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            completion(json!)
+        }
+        task.resume()
+    }
+    
+    //MARK: - look up data
+    
+    class func lookupExpensesByDate(date: String, completion: @escaping (_ json: Any) -> Void) {
+        
+        let urlString = String(format: "http://www.mysohoplace.com/php_hdb/php_GL/%@/dl_expenses_by_date.php?date=%@", folder, date)
         let url = URL(string: urlString)!
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
