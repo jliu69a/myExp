@@ -20,7 +20,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     
     let titlesList: [String] = ["Expense", "Misc"]
     let coreList: [String] = ["Change Color", "Edit Payments", "Edit Vendors", "Expense Report", "Export Data"]  //5
-    let miscList: [String] = ["Look Up Vendor", "Location Check", "Device Info"]
+    let miscList: [String] = ["Look Up Vendor", "Look Up Expenses", "Location Check", "Device Info"]
     
     //MARK: - init
     
@@ -117,10 +117,14 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
                 self.vendorLookup()
                 break
             case 1:
+                //-- lookup expenses
+                self.expensesLookup()
+                break
+            case 2:
                 //-- check location
                 self.checkLocations()
                 break
-            case 2:
+            case 3:
                 //-- check device
                 self.checkDeviceInfo()
                 break
@@ -245,6 +249,13 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         
         let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
         let vc: AdminVendorLookupViewController? = storyboard.instantiateViewController(withIdentifier: "AdminVendorLookupViewController") as? AdminVendorLookupViewController
+        self.navigationController!.pushViewController(vc!, animated: true)
+    }
+    
+    func expensesLookup() {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let vc: AdminExpensesLookupViewController? = storyboard.instantiateViewController(withIdentifier: "AdminExpensesLookupViewController") as? AdminExpensesLookupViewController
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     

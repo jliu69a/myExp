@@ -23,6 +23,7 @@
 		5A817FB222FA19280020FA4F /* AdminVendorLookupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A817FB122FA19280020FA4F /* AdminVendorLookupViewController.swift */; };
 		5A817FB422FA7A830020FA4F /* AdminVendorLookupListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A817FB322FA7A830020FA4F /* AdminVendorLookupListingVC.swift */; };
 		5A817FB622FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A817FB522FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift */; };
+		5AA2DF2D244934C100F17762 /* CalaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2DF2C244934C100F17762 /* CalaManager.swift */; };
 		5ACF01FF223EFEC400FBD3DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */; };
 		5ACF0201223EFEC400FBD3DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0200223EFEC400FBD3DC /* ViewController.swift */; };
 		5ACF0204223EFEC400FBD3DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0202223EFEC400FBD3DC /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		5ACF0265223F0F6800FBD3DC /* pandv.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0261223F0F6700FBD3DC /* pandv.storyboard */; };
 		5ACF0266223F0F6800FBD3DC /* admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0262223F0F6800FBD3DC /* admin.storyboard */; };
 		5ACF0267223F0F6800FBD3DC /* expenseHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0263223F0F6800FBD3DC /* expenseHome.storyboard */; };
+		5AF298322447D3FC003090DF /* AdminExpensesLookupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF298312447D3FC003090DF /* AdminExpensesLookupViewController.swift */; };
 		FAFA36BCBD4EDB5412B1ED57 /* Pods_myExpenseTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8084A014FA81C182B874C59 /* Pods_myExpenseTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +91,7 @@
 		5A817FB122FA19280020FA4F /* AdminVendorLookupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendorLookupViewController.swift; sourceTree = "<group>"; };
 		5A817FB322FA7A830020FA4F /* AdminVendorLookupListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendorLookupListingVC.swift; sourceTree = "<group>"; };
 		5A817FB522FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendorLookupYearsVC.swift; sourceTree = "<group>"; };
+		5AA2DF2C244934C100F17762 /* CalaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalaManager.swift; sourceTree = "<group>"; };
 		5ACF01FB223EFEC400FBD3DC /* MyExp 6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyExp 6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ACF0200223EFEC400FBD3DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 		5ACF0261223F0F6700FBD3DC /* pandv.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = pandv.storyboard; sourceTree = "<group>"; };
 		5ACF0262223F0F6800FBD3DC /* admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = admin.storyboard; sourceTree = "<group>"; };
 		5ACF0263223F0F6800FBD3DC /* expenseHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = expenseHome.storyboard; sourceTree = "<group>"; };
+		5AF298312447D3FC003090DF /* AdminExpensesLookupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminExpensesLookupViewController.swift; sourceTree = "<group>"; };
 		B802BF75536E766A536DC9B4 /* Pods-myExpenseTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myExpenseTracker.release.xcconfig"; path = "Target Support Files/Pods-myExpenseTracker/Pods-myExpenseTracker.release.xcconfig"; sourceTree = "<group>"; };
 		E8084A014FA81C182B874C59 /* Pods_myExpenseTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myExpenseTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				5A316052243EA381001CA24B /* DL_DataManager.swift */,
+				5AA2DF2C244934C100F17762 /* CalaManager.swift */,
 			);
 			path = data_lookup;
 			sourceTree = "<group>";
@@ -185,14 +190,15 @@
 			path = PHP;
 			sourceTree = "<group>";
 		};
-		5A817FB022FA18D00020FA4F /* helper */ = {
+		5A817FB022FA18D00020FA4F /* admin helper */ = {
 			isa = PBXGroup;
 			children = (
 				5A817FB122FA19280020FA4F /* AdminVendorLookupViewController.swift */,
 				5A817FB322FA7A830020FA4F /* AdminVendorLookupListingVC.swift */,
 				5A817FB522FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift */,
+				5AF298312447D3FC003090DF /* AdminExpensesLookupViewController.swift */,
 			);
-			path = helper;
+			path = "admin helper";
 			sourceTree = "<group>";
 		};
 		5ACF01F2223EFEC400FBD3DC = {
@@ -223,7 +229,7 @@
 				5ACF0214223F001700FBD3DC /* models */,
 				5ACF0215223F002600FBD3DC /* storyboards */,
 				5ACF0210223EFFD700FBD3DC /* admin */,
-				5A817FB022FA18D00020FA4F /* helper */,
+				5A817FB022FA18D00020FA4F /* admin helper */,
 				5ACF0212223EFFF600FBD3DC /* images */,
 				5A4605F623E5234B0010003A /* notes */,
 				5A81499822C55FF4004EF747 /* PHP */,
@@ -490,6 +496,7 @@
 				5ACF023D223F0EF100FBD3DC /* ExpenseCell.swift in Sources */,
 				5ACF025D223F0F1400FBD3DC /* AdminLocationChecksViewController.swift in Sources */,
 				5A316053243EA381001CA24B /* DL_DataManager.swift in Sources */,
+				5AF298322447D3FC003090DF /* AdminExpensesLookupViewController.swift in Sources */,
 				5ACF0219223F0BDB00FBD3DC /* PAndVModel.swift in Sources */,
 				5ACF021B223F0BFD00FBD3DC /* ReportModel.swift in Sources */,
 				5A817FB222FA19280020FA4F /* AdminVendorLookupViewController.swift in Sources */,
@@ -510,6 +517,7 @@
 				5ACF0201223EFEC400FBD3DC /* ViewController.swift in Sources */,
 				5ACF0229223F0D3000FBD3DC /* UserManager.swift in Sources */,
 				5ACF01FF223EFEC400FBD3DC /* AppDelegate.swift in Sources */,
+				5AA2DF2D244934C100F17762 /* CalaManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

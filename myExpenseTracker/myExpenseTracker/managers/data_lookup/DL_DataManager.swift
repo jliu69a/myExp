@@ -12,6 +12,7 @@ class DL_DataManager: NSObject {
     
     static let sharedInstance = DL_DataManager()
     
+    let yearRange: Int = 20
     
     var allMonthsList: [String] = []
     var allYearsList: [String] = []
@@ -61,9 +62,8 @@ class DL_DataManager: NSObject {
         let currentDate: [String] = self.currentYearAndMonth()
         let year: Int = Int(currentDate[0])!
         
-        let rangeSize: Int = 20
-        let fromYear: Int = year - rangeSize
-        let toYear: Int = year + rangeSize
+        let fromYear: Int = year - self.yearRange
+        let toYear: Int = year + self.yearRange
         
         self.allYearsList.removeAll()
         for each in fromYear...toYear {
