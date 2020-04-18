@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, LookupListsViewControllerDelegate {
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var topCollectionView: UICollectionView!
@@ -95,10 +95,12 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
             let cell:ListsCell? = self.topCollectionView.dequeueReusableCell(withReuseIdentifier: "TopCellId", for: indexPath) as? ListsCell
             
             let dateText = DL_DataManager.sharedInstance.monthDayDisplayList[indexPath.row]
+            let data: [ExpenseModel] = DL_DataManager.sharedInstance.lookupExpenseDict[dateText] ?? []
+            let isEmpty: Bool = (data.count == 0) ? true : false
+            
             cell!.parentVC = self
-            cell!.showDate(date: dateText)
+            cell!.showDate(date: dateText, isEmpty: isEmpty)
             cell!.index = indexPath.row
-            cell!.showBorder()
             
             if indexPath.row == DL_DataManager.sharedInstance.selectedTopCollectionViewIndex {
                 cell!.showIndicator(isSelected: true)
@@ -182,15 +184,39 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
         let storyboard = UIStoryboard(name: "lookup", bundle: nil)
         self.viewsList.removeAll()
         
-        for eachDay in DL_DataManager.sharedInstance.monthDayDisplayList {
-            let dateString: String = String(format: "Date: %@", eachDay)
+//        for eachDay in DL_DataManager.sharedInstance.monthDayDisplayList {
+//            let dateString: String = String(format: "Date: %@", eachDay)
+//            let explist: [ExpenseModel] = DL_DataManager.sharedInstance.lookupExpenseDict[eachDay] ?? []
+//
+//            let vc: LookupListsViewController? = storyboard.instantiateViewController(withIdentifier: "LookupListsViewController") as? LookupListsViewController
+//            vc!.delegate = self
+//            vc!.lookupData(data: explist, dateString: dateString)
+//            self.viewsList.append(vc!)
+//        }
+        
+        for i in 0..<DL_DataManager.sharedInstance.monthDayDisplayList.count {
+            let eachDay: String = DL_DataManager.sharedInstance.monthDayDisplayList[i]
+            let eachWeekday: String = DL_DataManager.sharedInstance.dayOfWeekDisplayList[i]
+            
+            let dateString: String = String(format: "Date: %@, %@", eachDay, eachWeekday)
             let explist: [ExpenseModel] = DL_DataManager.sharedInstance.lookupExpenseDict[eachDay] ?? []
             
             let vc: LookupListsViewController? = storyboard.instantiateViewController(withIdentifier: "LookupListsViewController") as? LookupListsViewController
+            vc!.delegate = self
             vc!.lookupData(data: explist, dateString: dateString)
-            vc!.showBorder()
             self.viewsList.append(vc!)
         }
+    }
+    
+    //MARK: - lookup delegate
+    
+    func didSelectExpenseItem(item: ExpenseModel) {
+        
+        let message: String = "\n\nID : \(item.expId)\n\nDATE : \(item.date!)\n\nTIME : \(item.time!)\n\nVENDOR : \(item.vendor!)\n\nPAYMENT : \(item.payment!)\n\nAMOUNT : \(item.amount)\n\nNOTES : \(item.note!)\n\n"
+        
+        let alert = UIAlertController(title: "Selected Expense Item", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction( UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil) )
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

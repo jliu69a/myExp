@@ -8,15 +8,22 @@
 
 import UIKit
 
+
+protocol LookupListsViewControllerDelegate: AnyObject {
+    
+    func didSelectExpenseItem(item: ExpenseModel)
+}
+
+
 class LookupListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    weak var delegate: LookupListsViewControllerDelegate?
+    
     var rowsList: [String] = []
-    
     var dateDisplayText: String = ""
-    
     var expensesList: [ExpenseModel] = []
     
     //MARK: - init
@@ -42,11 +49,6 @@ class LookupListsViewController: UIViewController, UITableViewDataSource, UITabl
     func lookupData(data: [ExpenseModel], dateString: String) {
         self.expensesList = data
         self.dateDisplayText = dateString
-    }
-    
-    func showBorder() {
-        //self.tableView.layer.borderColor = UIColor.black.cgColor
-        //self.tableView.layer.borderWidth = 0.5
     }
     
     //MARK: - table view source
@@ -76,6 +78,9 @@ class LookupListsViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+        
+        let model: ExpenseModel = self.expensesList[indexPath.row]
+        self.delegate?.didSelectExpenseItem(item: model)
     }
     
 }

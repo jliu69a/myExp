@@ -22,8 +22,9 @@ class ListsCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func showDate(date: String) {
+    func showDate(date: String, isEmpty: Bool) {
         self.dateLabel.text = date
+        self.dateLabel.textColor = isEmpty ? UIColor.blue : UIColor.green
     }
     
     func showIndicator(isSelected: Bool) {

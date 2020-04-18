@@ -23,6 +23,8 @@ class DL_DataManager: NSObject {
     var totalDaysInMonth: Int = 0
     var monthDayDisplayList: [String] = []
     
+    var dayOfWeekDisplayList: [String] = []
+    
     var selectedTopCollectionViewIndex: Int = 0
     
     var lookupExpenseDict: [String: [ExpenseModel]] = [:]
@@ -84,10 +86,21 @@ class DL_DataManager: NSObject {
         let selectedDate: Date = self.convertToDate(year: year, month: month)
         self.totalDaysInMonth = self.getTotalDaysInMonth(selectedDate: selectedDate)
         
+        let df = DateFormatter()
+        
         self.monthDayDisplayList.removeAll()
+        self.dayOfWeekDisplayList.removeAll()
+        
         for eachDay in 1...self.totalDaysInMonth {
             let display: String = String(format: "%d/%d", month, eachDay)
             self.monthDayDisplayList.append(display)
+            
+            let dateText = String(format: "%d-%d-%d", year, month, eachDay)
+            df.dateFormat = "yyyy-M-d"
+            let tempDate: Date = df.date(from: dateText)!
+            df.dateFormat = "EEE"
+            let weekday: String = df.string(from: tempDate)
+            self.dayOfWeekDisplayList.append(weekday)
         }
     }
     

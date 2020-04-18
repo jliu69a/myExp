@@ -70,14 +70,6 @@
                                     <outlet property="delegate" destination="960-0V-eVv" id="Ie2-po-tUu"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-bt-fMX">
-                                <rect key="frame" x="150" y="274" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="DZY-jC-e4G"/>
-                                    <constraint firstAttribute="width" constant="20" id="ZKA-m4-TVi"/>
-                                </constraints>
-                                <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -85,19 +77,16 @@
                             <constraint firstItem="oDN-4d-mNG" firstAttribute="trailing" secondItem="iz3-Pp-Nkg" secondAttribute="trailing" id="DT4-VY-2Kh"/>
                             <constraint firstItem="aoW-zV-Mg0" firstAttribute="leading" secondItem="iz3-Pp-Nkg" secondAttribute="leading" id="KWL-3t-Xnp"/>
                             <constraint firstItem="aoW-zV-Mg0" firstAttribute="top" secondItem="Dae-Sp-Ml4" secondAttribute="bottom" id="KsM-7k-eg4"/>
-                            <constraint firstItem="JHa-bt-fMX" firstAttribute="centerX" secondItem="LhR-2Y-e5c" secondAttribute="centerX" id="M6z-VR-wap"/>
                             <constraint firstItem="Dae-Sp-Ml4" firstAttribute="leading" secondItem="iz3-Pp-Nkg" secondAttribute="leading" constant="10" id="Qsv-r0-D0g"/>
                             <constraint firstItem="oDN-4d-mNG" firstAttribute="leading" secondItem="iz3-Pp-Nkg" secondAttribute="leading" id="Rp6-M7-OE3"/>
                             <constraint firstItem="aoW-zV-Mg0" firstAttribute="bottom" secondItem="iz3-Pp-Nkg" secondAttribute="bottom" id="XB0-Bq-vo1"/>
                             <constraint firstItem="oDN-4d-mNG" firstAttribute="top" secondItem="iz3-Pp-Nkg" secondAttribute="top" id="amZ-l0-pWN"/>
                             <constraint firstItem="iz3-Pp-Nkg" firstAttribute="trailing" secondItem="Dae-Sp-Ml4" secondAttribute="trailing" constant="10" id="bji-8X-fwb"/>
                             <constraint firstItem="aoW-zV-Mg0" firstAttribute="trailing" secondItem="iz3-Pp-Nkg" secondAttribute="trailing" id="c5y-D0-nNd"/>
-                            <constraint firstItem="JHa-bt-fMX" firstAttribute="centerY" secondItem="LhR-2Y-e5c" secondAttribute="centerY" id="vHx-4R-7le"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iz3-Pp-Nkg"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="JHa-bt-fMX" id="wUC-58-mhU"/>
                         <outlet property="tableView" destination="Dae-Sp-Ml4" id="Oek-Sh-eQG"/>
                         <outlet property="versionLabel" destination="aoW-zV-Mg0" id="wTG-ry-Teg"/>
                     </connections>
@@ -455,6 +444,14 @@
                                     <outlet property="delegate" destination="1kH-SG-arb" id="ya0-l9-d3C"/>
                                 </connections>
                             </pickerView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="cBb-jH-cOR">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="F9X-le-ifH"/>
+                                    <constraint firstAttribute="height" constant="20" id="SM1-vF-DGh"/>
+                                </constraints>
+                                <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -471,6 +468,8 @@
                             <constraint firstItem="sOz-io-JOr" firstAttribute="top" secondItem="WY4-te-FZd" secondAttribute="bottom" constant="30" id="glR-Zg-BPp"/>
                             <constraint firstItem="lnO-2t-gPx" firstAttribute="leading" secondItem="ZD3-3o-E3m" secondAttribute="leading" id="hWP-hX-5YY"/>
                             <constraint firstItem="WY4-te-FZd" firstAttribute="top" secondItem="n91-1h-aaD" secondAttribute="bottom" constant="60" id="jOg-x9-UzA"/>
+                            <constraint firstItem="cBb-jH-cOR" firstAttribute="centerY" secondItem="v5K-pe-L4c" secondAttribute="centerY" id="uFo-xJ-sjS"/>
+                            <constraint firstItem="cBb-jH-cOR" firstAttribute="centerX" secondItem="v5K-pe-L4c" secondAttribute="centerX" id="uua-iJ-nac"/>
                             <constraint firstItem="ZD3-3o-E3m" firstAttribute="bottom" secondItem="sOz-io-JOr" secondAttribute="bottom" constant="30" id="w2d-sg-iCY"/>
                             <constraint firstItem="lnO-2t-gPx" firstAttribute="top" secondItem="tSL-xA-SJf" secondAttribute="bottom" constant="10" id="w92-Bz-PDb"/>
                             <constraint firstItem="ZD3-3o-E3m" firstAttribute="trailing" secondItem="WY4-te-FZd" secondAttribute="trailing" constant="35" id="yC5-ll-4Rf"/>
@@ -478,6 +477,7 @@
                         <viewLayoutGuide key="safeArea" id="ZD3-3o-E3m"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="cBb-jH-cOR" id="nG7-Ub-a3I"/>
                         <outlet property="dateLabel" destination="lnO-2t-gPx" id="56o-Za-j7L"/>
                         <outlet property="datePickerView" destination="n91-1h-aaD" id="nxN-z1-ZbF"/>
                     </connections>

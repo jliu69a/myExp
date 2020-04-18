@@ -13,6 +13,8 @@ class AdminExpensesLookupViewController: UIViewController, UIPickerViewDataSourc
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePickerView: UIPickerView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var selectedMonthIndex: Int = 0
     var selectedYearIndex: Int = 0
     
@@ -23,10 +25,15 @@ class AdminExpensesLookupViewController: UIViewController, UIPickerViewDataSourc
         
         DL_DataManager.sharedInstance.generateAllYears()
         DL_DataManager.sharedInstance.generateAllMonths()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didGenerateExpensesLookupData), name: NSNotification.Name(rawValue: Constant.kCreateLookupExpensesDataNotificatioon), object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.activityIndicator.stopAnimating()
         
         self.datePickerView.layer.borderColor = UIColor.black.cgColor
         self.datePickerView.layer.borderWidth = 0.5
@@ -46,23 +53,32 @@ class AdminExpensesLookupViewController: UIViewController, UIPickerViewDataSourc
 
     @IBAction func showDataAction(_ sender: Any) {
         
+        let yearText = DL_DataManager.sharedInstance.allYearsList[self.selectedYearIndex]
+        
+        let monthValue = self.selectedMonthIndex + 1
+        let monthText = String(format: "%0.2d", monthValue)
+        print("> ")
+        print("> year  : '\(yearText)' ")
+        print("> month : '\(monthText)' ")
+        print("> ")
+        self.getLookupData(yearText: yearText, monthText: monthText)
+
+        /*
         let queryDateString = self.queryDate()
         print("> ")
         print("> SQL query date : \(queryDateString) ")
-        
+
         let yearText = DL_DataManager.sharedInstance.allYearsList[self.selectedYearIndex]
         let yearValue = Int(yearText)!
         let monthValue = self.selectedMonthIndex + 1
         DL_DataManager.sharedInstance.generateMonthsAndDaysDisplay(year: yearValue, month: monthValue)
         print("> all days = \(DL_DataManager.sharedInstance.monthDayDisplayList)")
         print("> ")
-        
+
         let storyboard = UIStoryboard(name: "admin", bundle: nil)
         let vc: AdminExpenseDetailsViewController? = storyboard.instantiateViewController(withIdentifier: "AdminExpenseDetailsViewController") as? AdminExpenseDetailsViewController
-        //vc!.selectedMonth = self.selectedMonthIndex + 1
-        //vc!.maxSize = DL_DataManager.sharedInstance.totalDaysInMonth
         self.navigationController!.pushViewController(vc!, animated: true)
-        
+        */
     }
     
     //MARK: - picker view source
@@ -106,6 +122,50 @@ class AdminExpensesLookupViewController: UIViewController, UIPickerViewDataSourc
         }
         self.displayDate()
         self.showTotalDays()
+    }
+    
+    //MARK: - lookup data
+    
+    func getLookupData(yearText: String, monthText: String) {
+        self.activityIndicator.startAnimating()
+        
+        DL_DataManager.sharedInstance.generateAllMonths()
+        DL_DataManager.sharedInstance.generateAllYears()
+        print("> ")
+        print("> all months : \(DL_DataManager.sharedInstance.allMonthsList) ")
+        print("> all years  : \(DL_DataManager.sharedInstance.allYearsList) ")
+        print("> ")
+        let dateString = String(format: "%@-%@", yearText, monthText)
+        
+        let yearValue: Int = Int(yearText)!
+        let monthValue: Int = Int(monthText)!
+        
+        DL_DataManager.sharedInstance.generateMonthsAndDaysDisplay(year: yearValue, month: monthValue)
+        print("- ")
+        print("- total days in month = \(DL_DataManager.sharedInstance.totalDaysInMonth) ")
+        print("- display list : \(DL_DataManager.sharedInstance.monthDayDisplayList) ")
+        print("- ")
+        
+        DL_DataManager.sharedInstance.lookupInitialData()
+        print("> ")
+        print("> all expenses items : \(DL_DataManager.sharedInstance.lookupExpenseDict) ")
+        print("> ")
+        
+        DL_DataManager.sharedInstance.lookupExpensesByDate(date: dateString)
+    }
+    
+    //MARK: - lookup notifications
+    
+    @objc func didGenerateExpensesLookupData() {
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            
+            let storyboard = UIStoryboard(name: "admin", bundle: nil)
+            let vc: AdminExpenseDetailsViewController? = storyboard.instantiateViewController(withIdentifier: "AdminExpenseDetailsViewController") as? AdminExpenseDetailsViewController
+            DL_DataManager.sharedInstance.selectedTopCollectionViewIndex = 0
+            self.navigationController!.pushViewController(vc!, animated: true)
+        }
     }
     
     //MARK: - helpers
