@@ -15,6 +15,9 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     var selectDateVC: AdminReportDateViewController? = nil
     var reportDate: Date = Date()
     
@@ -30,11 +33,17 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.register(UINib(nibName: "AdminListCell", bundle: nil), forCellReuseIdentifier: "CellId")
         
         NotificationCenter.default.addObserver(self, selector: #selector(didFinishReport), name: NSNotification.Name(rawValue: Constant.kPaymentsAndVendorsReportNotification), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(didFinishDataExport), name: NSNotification.Name(rawValue: Constant.kExportMonthAndYearDataNotification), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didGenerateExpensesLookupData), name: NSNotification.Name(rawValue: Constant.kCreateLookupExpensesDataNotificatioon), object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.activityIndicator.stopAnimating()
         
         let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
         self.versionLabel.text = String(format: "Version: %@", appVersion!)
@@ -118,7 +127,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
                 break
             case 1:
                 //-- lookup expenses
-                self.expensesLookup()
+                self.dataForExpensesLookup()
                 break
             case 2:
                 //-- check location
@@ -252,7 +261,44 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     
+    func dataForExpensesLookup() {
+        self.activityIndicator.startAnimating()
+        
+        DL_DataManager.sharedInstance.generateAllMonths()
+        DL_DataManager.sharedInstance.generateAllYears()
+        print("> ")
+        print("> all months : \(DL_DataManager.sharedInstance.allMonthsList) ")
+        print("> all years  : \(DL_DataManager.sharedInstance.allYearsList) ")
+        print("> ")
+        
+        let rightNow = Date()
+        let df = DateFormatter()
+        df.dateFormat = "yyyy"
+        let yearText = df.string(from: rightNow)
+        df.dateFormat = "MM"
+        let monthText = df.string(from: rightNow)
+        df.dateFormat = "yyyy-MM"
+        let dateString = df.string(from: Date())
+        
+        let yearValue: Int = Int(yearText)!
+        let monthValue: Int = Int(monthText)!
+        
+        DL_DataManager.sharedInstance.generateMonthsAndDaysDisplay(year: yearValue, month: monthValue)
+        print("- ")
+        print("- total days in month = \(DL_DataManager.sharedInstance.totalDaysInMonth) ")
+        print("- display list : \(DL_DataManager.sharedInstance.monthDayDisplayList) ")
+        print("- ")
+        
+        DL_DataManager.sharedInstance.lookupInitialData()
+        print("> ")
+        print("> all expenses items : \(DL_DataManager.sharedInstance.lookupExpenseDict) ")
+        print("> ")
+        
+        DL_DataManager.sharedInstance.lookupExpensesByDate(date: dateString)
+    }
+    
     func expensesLookup() {
+        self.activityIndicator.stopAnimating()
         
         let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
         let vc: AdminExpensesLookupViewController? = storyboard.instantiateViewController(withIdentifier: "AdminExpensesLookupViewController") as? AdminExpensesLookupViewController
@@ -289,6 +335,13 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    @objc func didGenerateExpensesLookupData() {
+        
+        DispatchQueue.main.async {
+            self.expensesLookup()
+        }
+    }
+    
     //MARK: - date selection
     
     func showDateSelection(isForMonthly: Bool, isForDataExport: Bool) {
@@ -309,6 +362,4 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         self.selectDateVC!.removeFromParent()
         self.selectDateVC = nil
     }
-    
-    
 }

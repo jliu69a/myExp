@@ -26,6 +26,8 @@ struct Constant {
     
     static let kVendorLookupWithYearNotification: String = "Vendor_Lookup_With_Year_Notification"
     
+    static let kCreateLookupExpensesDataNotificatioon: String = "Create_Lookup_Expenses_Data_Notificatioon"
+    
     static let kUserDefaultPaymentNameColorCodeKey: String = "User_Default_Payment_Name_Color_Code_Key"
     static let kUserDefaultPaymentIdColorCodeKey: String = "User_Default_Payment_Id_Color_Code_Key"
     

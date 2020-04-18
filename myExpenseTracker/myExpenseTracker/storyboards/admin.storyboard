@@ -69,6 +69,14 @@
                                     <outlet property="delegate" destination="960-0V-eVv" id="Ie2-po-tUu"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-bt-fMX">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="DZY-jC-e4G"/>
+                                    <constraint firstAttribute="width" constant="20" id="ZKA-m4-TVi"/>
+                                </constraints>
+                                <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -76,16 +84,19 @@
                             <constraint firstItem="oDN-4d-mNG" firstAttribute="trailing" secondItem="iz3-Pp-Nkg" secondAttribute="trailing" id="DT4-VY-2Kh"/>
                             <constraint firstItem="aoW-zV-Mg0" firstAttribute="leading" secondItem="iz3-Pp-Nkg" secondAttribute="leading" id="KWL-3t-Xnp"/>
                             <constraint firstItem="aoW-zV-Mg0" firstAttribute="top" secondItem="Dae-Sp-Ml4" secondAttribute="bottom" id="KsM-7k-eg4"/>
+                            <constraint firstItem="JHa-bt-fMX" firstAttribute="centerX" secondItem="LhR-2Y-e5c" secondAttribute="centerX" id="M6z-VR-wap"/>
                             <constraint firstItem="Dae-Sp-Ml4" firstAttribute="leading" secondItem="iz3-Pp-Nkg" secondAttribute="leading" constant="10" id="Qsv-r0-D0g"/>
                             <constraint firstItem="oDN-4d-mNG" firstAttribute="leading" secondItem="iz3-Pp-Nkg" secondAttribute="leading" id="Rp6-M7-OE3"/>
                             <constraint firstItem="aoW-zV-Mg0" firstAttribute="bottom" secondItem="iz3-Pp-Nkg" secondAttribute="bottom" id="XB0-Bq-vo1"/>
                             <constraint firstItem="oDN-4d-mNG" firstAttribute="top" secondItem="iz3-Pp-Nkg" secondAttribute="top" id="amZ-l0-pWN"/>
                             <constraint firstItem="iz3-Pp-Nkg" firstAttribute="trailing" secondItem="Dae-Sp-Ml4" secondAttribute="trailing" constant="10" id="bji-8X-fwb"/>
                             <constraint firstItem="aoW-zV-Mg0" firstAttribute="trailing" secondItem="iz3-Pp-Nkg" secondAttribute="trailing" id="c5y-D0-nNd"/>
+                            <constraint firstItem="JHa-bt-fMX" firstAttribute="centerY" secondItem="LhR-2Y-e5c" secondAttribute="centerY" id="vHx-4R-7le"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iz3-Pp-Nkg"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="JHa-bt-fMX" id="wUC-58-mhU"/>
                         <outlet property="tableView" destination="Dae-Sp-Ml4" id="Oek-Sh-eQG"/>
                         <outlet property="versionLabel" destination="aoW-zV-Mg0" id="wTG-ry-Teg"/>
                     </connections>

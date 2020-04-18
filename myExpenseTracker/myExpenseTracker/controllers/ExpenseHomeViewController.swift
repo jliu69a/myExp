@@ -162,9 +162,6 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
             self.showExpensesTotal()
-            
-            //-- testing
-            self.testings()
         }
     }
     
@@ -338,35 +335,4 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
 
         self.present(alert, animated: true, completion: nil)
     }
-    
-    //MARK: - testing
-    
-    func testings() {
-        
-        DL_DataManager.sharedInstance.generateAllMonths()
-        DL_DataManager.sharedInstance.generateAllYears()
-        print("> ")
-        print("> all months : \(DL_DataManager.sharedInstance.allMonthsList) ")
-        print("> all years  : \(DL_DataManager.sharedInstance.allYearsList) ")
-        print("> ")
-        
-        DL_DataManager.sharedInstance.generateMonthsAndDaysDisplay(year: 2020, month: 4)
-        print("- ")
-        print("- total days in month = \(DL_DataManager.sharedInstance.totalDaysInMonth) ")
-        print("- display list : \(DL_DataManager.sharedInstance.monthDayDisplayList) ")
-        print("- ")
-        
-        DL_DataManager.sharedInstance.lookupInitialData()
-        print("> ")
-        print("> all expenses items : \(DL_DataManager.sharedInstance.lookupExpenseDict) ")
-        print("> ")
-        
-        let df: DateFormatter = DateFormatter()
-        df.dateFormat = "yyyy-MM"
-        let dateString = df.string(from: Date())
-        
-        DL_DataManager.sharedInstance.lookupExpensesByDate(date: dateString)
-        
-    }
-    
 }

@@ -120,7 +120,7 @@ class DL_DataManager: NSObject {
             let expenseData: [AnyObject] = expenses! as [AnyObject]
             self.parseExpenses(data: expenseData)
             
-            //NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kChangeExpensesDataNotification), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.kCreateLookupExpensesDataNotificatioon), object: nil)
         }
     }
     
