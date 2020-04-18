@@ -14,11 +14,16 @@ class DL_DataManager: NSObject {
     
     let yearRange: Int = 20
     
+    let xSeriesSpace: CGFloat = 44
+    let notXSeriesSpace: CGFloat = 20
+    
     var allMonthsList: [String] = []
     var allYearsList: [String] = []
     
     var totalDaysInMonth: Int = 0
     var monthDayDisplayList: [String] = []
+    
+    var selectedTopCollectionViewIndex: Int = 0
     
     var lookupExpenseDict: [String: [ExpenseModel]] = [:]
     

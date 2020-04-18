@@ -12,6 +12,12 @@
 		5A3E459722923D440087B1E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3E459622923D440087B1E4 /* SystemConfiguration.framework */; };
 		5A3E459922923E120087B1E4 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E459822923E120087B1E4 /* AlertManager.swift */; };
 		5A4605F823E523B80010003A /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A4605F723E523B80010003A /* readme.txt */; };
+		5A78A9C5244B8CB700E69674 /* AdminExpenseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A78A9C4244B8CB700E69674 /* AdminExpenseDetailsViewController.swift */; };
+		5A78A9C8244B8F5400E69674 /* ListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A78A9C6244B8F5400E69674 /* ListsCell.swift */; };
+		5A78A9C9244B8F5400E69674 /* ListsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A78A9C7244B8F5400E69674 /* ListsCell.xib */; };
+		5A78A9CC244B8FF300E69674 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A78A9CB244B8FF200E69674 /* UIDeviceExtension.swift */; };
+		5A78A9CE244B943D00E69674 /* LookupListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A78A9CD244B943D00E69674 /* LookupListsViewController.swift */; };
+		5A78A9D0244B945A00E69674 /* lookup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A78A9CF244B945A00E69674 /* lookup.storyboard */; };
 		5A8149A122C56034004EF747 /* expense_export.php in Resources */ = {isa = PBXBuildFile; fileRef = 5A81499922C56034004EF747 /* expense_export.php */; };
 		5A8149A222C56034004EF747 /* edit_expenses.php in Resources */ = {isa = PBXBuildFile; fileRef = 5A81499A22C56034004EF747 /* edit_expenses.php */; };
 		5A8149A322C56034004EF747 /* reports.php in Resources */ = {isa = PBXBuildFile; fileRef = 5A81499B22C56034004EF747 /* reports.php */; };
@@ -80,6 +86,12 @@
 		5A3E459622923D440087B1E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5A3E459822923E120087B1E4 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		5A4605F723E523B80010003A /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		5A78A9C4244B8CB700E69674 /* AdminExpenseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminExpenseDetailsViewController.swift; sourceTree = "<group>"; };
+		5A78A9C6244B8F5400E69674 /* ListsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsCell.swift; sourceTree = "<group>"; };
+		5A78A9C7244B8F5400E69674 /* ListsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListsCell.xib; sourceTree = "<group>"; };
+		5A78A9CB244B8FF200E69674 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		5A78A9CD244B943D00E69674 /* LookupListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupListsViewController.swift; sourceTree = "<group>"; };
+		5A78A9CF244B945A00E69674 /* lookup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = lookup.storyboard; sourceTree = "<group>"; };
 		5A81499922C56034004EF747 /* expense_export.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = expense_export.php; sourceTree = "<group>"; };
 		5A81499A22C56034004EF747 /* edit_expenses.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = edit_expenses.php; sourceTree = "<group>"; };
 		5A81499B22C56034004EF747 /* reports.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = reports.php; sourceTree = "<group>"; };
@@ -175,6 +187,14 @@
 			path = notes;
 			sourceTree = "<group>";
 		};
+		5A78A9CA244B8FDD00E69674 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				5A78A9CB244B8FF200E69674 /* UIDeviceExtension.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		5A81499822C55FF4004EF747 /* PHP */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +217,10 @@
 				5A817FB322FA7A830020FA4F /* AdminVendorLookupListingVC.swift */,
 				5A817FB522FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift */,
 				5AF298312447D3FC003090DF /* AdminExpensesLookupViewController.swift */,
+				5A78A9C4244B8CB700E69674 /* AdminExpenseDetailsViewController.swift */,
+				5A78A9C6244B8F5400E69674 /* ListsCell.swift */,
+				5A78A9C7244B8F5400E69674 /* ListsCell.xib */,
+				5A78A9CD244B943D00E69674 /* LookupListsViewController.swift */,
 			);
 			path = "admin helper";
 			sourceTree = "<group>";
@@ -224,13 +248,14 @@
 			children = (
 				5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */,
 				5ACF0200223EFEC400FBD3DC /* ViewController.swift */,
-				5ACF0211223EFFE800FBD3DC /* controllers */,
+				5ACF0212223EFFF600FBD3DC /* images */,
 				5ACF0213223F000600FBD3DC /* managers */,
 				5ACF0214223F001700FBD3DC /* models */,
-				5ACF0215223F002600FBD3DC /* storyboards */,
+				5ACF0211223EFFE800FBD3DC /* controllers */,
 				5ACF0210223EFFD700FBD3DC /* admin */,
 				5A817FB022FA18D00020FA4F /* admin helper */,
-				5ACF0212223EFFF600FBD3DC /* images */,
+				5ACF0215223F002600FBD3DC /* storyboards */,
+				5A78A9CA244B8FDD00E69674 /* utils */,
 				5A4605F623E5234B0010003A /* notes */,
 				5A81499822C55FF4004EF747 /* PHP */,
 				5ACF0202223EFEC400FBD3DC /* Main.storyboard */,
@@ -321,6 +346,7 @@
 				5ACF0263223F0F6800FBD3DC /* expenseHome.storyboard */,
 				5ACF0260223F0F6700FBD3DC /* loginRegister.storyboard */,
 				5ACF0261223F0F6700FBD3DC /* pandv.storyboard */,
+				5A78A9CF244B945A00E69674 /* lookup.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -407,6 +433,7 @@
 			files = (
 				5ACF023F223F0EF100FBD3DC /* ExpenseCell.xib in Resources */,
 				5A8149A122C56034004EF747 /* expense_export.php in Resources */,
+				5A78A9C9244B8F5400E69674 /* ListsCell.xib in Resources */,
 				5A8149A522C56034004EF747 /* change_vendor.php in Resources */,
 				5ACF0209223EFEC500FBD3DC /* LaunchScreen.storyboard in Resources */,
 				5ACF0206223EFEC500FBD3DC /* Assets.xcassets in Resources */,
@@ -428,6 +455,7 @@
 				5A8149A222C56034004EF747 /* edit_expenses.php in Resources */,
 				5A8149A322C56034004EF747 /* reports.php in Resources */,
 				5A8149A622C56034004EF747 /* init_data.php in Resources */,
+				5A78A9D0244B945A00E69674 /* lookup.storyboard in Resources */,
 				5ACF0254223F0F1400FBD3DC /* AdminReportCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,10 +514,12 @@
 				5ACF0230223F0DE200FBD3DC /* DataManager.swift in Sources */,
 				5ACF021D223F0C2000FBD3DC /* ExpsConstants.swift in Sources */,
 				5ACF0244223F0EF100FBD3DC /* PaymentsVendorsViewController.swift in Sources */,
+				5A78A9CC244B8FF300E69674 /* UIDeviceExtension.swift in Sources */,
 				5ACF023E223F0EF100FBD3DC /* LoginRegisterViewController.swift in Sources */,
 				5ACF0240223F0EF100FBD3DC /* ExpenseHomeViewController.swift in Sources */,
 				5ACF0253223F0F1400FBD3DC /* AdminEditColorViewController.swift in Sources */,
 				5A3E459522923D250087B1E4 /* Reachability.swift in Sources */,
+				5A78A9C8244B8F5400E69674 /* ListsCell.swift in Sources */,
 				5ACF023C223F0EF100FBD3DC /* PAndVCell.swift in Sources */,
 				5ACF0257223F0F1400FBD3DC /* AdminReportDateViewController.swift in Sources */,
 				5ACF0243223F0EF100FBD3DC /* EditExpensesViewController.swift in Sources */,
@@ -506,6 +536,7 @@
 				5ACF025A223F0F1400FBD3DC /* AdminPVEditViewController.swift in Sources */,
 				5A817FB622FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift in Sources */,
 				5ACF0227223F0CFF00FBD3DC /* UtilsManager.swift in Sources */,
+				5A78A9CE244B943D00E69674 /* LookupListsViewController.swift in Sources */,
 				5ACF0232223F0E1400FBD3DC /* DisplayManager.swift in Sources */,
 				5ACF0256223F0F1400FBD3DC /* AdminDeviceInfoViewController.swift in Sources */,
 				5ACF025E223F0F1400FBD3DC /* AdminShowReportsViewController.swift in Sources */,
@@ -517,6 +548,7 @@
 				5ACF0201223EFEC400FBD3DC /* ViewController.swift in Sources */,
 				5ACF0229223F0D3000FBD3DC /* UserManager.swift in Sources */,
 				5ACF01FF223EFEC400FBD3DC /* AppDelegate.swift in Sources */,
+				5A78A9C5244B8CB700E69674 /* AdminExpenseDetailsViewController.swift in Sources */,
 				5AA2DF2D244934C100F17762 /* CalaManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

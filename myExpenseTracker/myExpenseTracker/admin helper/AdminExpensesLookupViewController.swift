@@ -57,11 +57,11 @@ class AdminExpensesLookupViewController: UIViewController, UIPickerViewDataSourc
         print("> all days = \(DL_DataManager.sharedInstance.monthDayDisplayList)")
         print("> ")
         
-//        let storyboard = UIStoryboard(name: "dl_lists", bundle: nil)
-//        let vc: DLExpListsViewController? = storyboard.instantiateViewController(withIdentifier: "DLExpListsViewController") as? DLExpListsViewController
-//        vc!.selectedMonth = self.selectedMonthIndex + 1
-//        vc!.maxSize = DL_DataManager.sharedInstance.daysTitleList.count
-//        self.navigationController!.pushViewController(vc!, animated: true)
+        let storyboard = UIStoryboard(name: "admin", bundle: nil)
+        let vc: AdminExpenseDetailsViewController? = storyboard.instantiateViewController(withIdentifier: "AdminExpenseDetailsViewController") as? AdminExpenseDetailsViewController
+        //vc!.selectedMonth = self.selectedMonthIndex + 1
+        //vc!.maxSize = DL_DataManager.sharedInstance.totalDaysInMonth
+        self.navigationController!.pushViewController(vc!, animated: true)
         
     }
     
