@@ -153,15 +153,9 @@ class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, 
         
         let key: String = self.keysList[indexPath.section]
         let list: [ExpenseModel]? = self.rowsGroups![key]
+        
         let data: ExpenseModel = list![indexPath.row]
-        
-        cell!.cellVendorLabel.text = data.vendor!
-        cell!.cellPaymentLabel.text = data.payment!
-        cell!.cellNotesLabel.text = data.note!
-        cell!.cellTimeLabel.text = String(format: "on: %@, %@", data.date!, data.time!)
-        
-        let amountText = String(format: "%0.2f", data.amount)
-        cell!.cellAmountLabel.text = amountText
+        cell!.displayModelData(data: data)
         
         return cell!
     }

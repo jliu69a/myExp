@@ -25,4 +25,15 @@ class ExpenseCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func displayModelData(data: ExpenseModel) {
+        
+        self.cellVendorLabel.text = data.vendor!
+        self.cellPaymentLabel.text = data.payment!
+        self.cellNotesLabel.text = data.note!
+        self.cellTimeLabel.text = String(format: "( time: %@ )", data.time!)
+        
+        let amountText = String(format: "%0.2f", data.amount)
+        self.cellAmountLabel.text = amountText
+    }
+    
 }

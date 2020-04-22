@@ -211,12 +211,7 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
     //MARK: - lookup delegate
     
     func didSelectExpenseItem(item: ExpenseModel) {
-        
-        let message: String = "\n\nID : \(item.expId)\n\nDATE : \(item.date!)\n\nTIME : \(item.time!)\n\nVENDOR : \(item.vendor!)\n\nPAYMENT : \(item.payment!)\n\nAMOUNT : \(item.amount)\n\nNOTES : \(item.note!)\n\n"
-        
-        let alert = UIAlertController(title: "Selected Expense Item", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction( UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil) )
-        self.present(alert, animated: true, completion: nil)
+        //
     }
     
 }

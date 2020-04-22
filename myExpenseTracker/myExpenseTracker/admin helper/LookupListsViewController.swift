@@ -31,7 +31,8 @@ class LookupListsViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellId")
+        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellId")
+        self.tableView.register(UINib(nibName: "ExpenseCell", bundle: nil), forCellReuseIdentifier: "CellId")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,13 +64,10 @@ class LookupListsViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell? = self.tableView.dequeueReusableCell(withIdentifier: "CellId")
+        let cell: ExpenseCell? = self.tableView.dequeueReusableCell(withIdentifier: "CellId") as? ExpenseCell
         
-        let model: ExpenseModel = self.expensesList[indexPath.row]
-        let displayText: String = String(format: "%@: %0.2f", model.vendor!, model.amount)
-        
-        cell!.textLabel!.text = displayText
-        cell!.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        let data: ExpenseModel = self.expensesList[indexPath.row]
+        cell!.displayModelData(data: data)
         
         return cell!
     }
@@ -77,10 +75,7 @@ class LookupListsViewController: UIViewController, UITableViewDataSource, UITabl
     //MARK: - table view delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: true)
-        
-        let model: ExpenseModel = self.expensesList[indexPath.row]
-        self.delegate?.didSelectExpenseItem(item: model)
+        self.tableView.deselectRow(at: indexPath, animated: false)
     }
     
 }

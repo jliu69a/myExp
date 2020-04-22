@@ -11,7 +11,7 @@
         <!--Lookup Lists View Controller-->
         <scene sceneID="0cV-bl-lY9">
             <objects>
-                <viewController storyboardIdentifier="LookupListsViewController" id="gyt-hi-xTc" customClass="LookupListsViewController" customModule="MyExp_6" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LookupListsViewController" id="gyt-hi-xTc" customClass="LookupListsViewController" customModule="MyExp_7" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fke-Lg-Vup">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                     <constraint firstAttribute="height" constant="44" id="ogb-Es-cdA"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lgi-KL-JcU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lgi-KL-JcU">
                                 <rect key="frame" x="30" y="44" width="260" height="426"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
