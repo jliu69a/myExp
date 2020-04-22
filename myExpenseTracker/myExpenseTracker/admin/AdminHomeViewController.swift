@@ -139,7 +139,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     
     func selectColor() {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminColors", bundle: nil)
         let vc: AdminColorsViewController? = storyboard.instantiateViewController(withIdentifier: "AdminColorsViewController") as? AdminColorsViewController
         self.navigationController!.pushViewController(vc!, animated: true)
     }
@@ -148,7 +148,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     
     func showPaymentAndVendorPage(isForVendor: Bool) {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminPV", bundle: nil)
         let vc: AdminPaymentsVendorsVC? = storyboard.instantiateViewController(withIdentifier: "AdminPaymentsVendorsVC") as? AdminPaymentsVendorsVC
         vc!.isForVendor = isForVendor
         self.navigationController!.pushViewController(vc!, animated: true)
@@ -249,28 +249,28 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     
     func vendorLookup() {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminVLookup", bundle: nil)
         let vc: AdminVendorLookupViewController? = storyboard.instantiateViewController(withIdentifier: "AdminVendorLookupViewController") as? AdminVendorLookupViewController
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     
     func expensesLookup() {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminELookup", bundle: nil)
         let vc: AdminExpensesLookupViewController? = storyboard.instantiateViewController(withIdentifier: "AdminExpensesLookupViewController") as? AdminExpensesLookupViewController
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     
     func checkLocations() {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminLocations", bundle: nil)
         let vc: AdminLocationChecksViewController? = storyboard.instantiateViewController(withIdentifier: "AdminLocationChecksViewController") as? AdminLocationChecksViewController
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     
     func checkDeviceInfo() {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminDevice", bundle: nil)
         let vc: AdminDeviceInfoViewController? = storyboard.instantiateViewController(withIdentifier: "AdminDeviceInfoViewController") as? AdminDeviceInfoViewController
         self.navigationController!.pushViewController(vc!, animated: true)
     }
@@ -295,7 +295,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     
     func showDateSelection(isForMonthly: Bool, isForDataExport: Bool) {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminReports", bundle: nil)
         self.selectDateVC = storyboard.instantiateViewController(withIdentifier: "AdminReportDateViewController") as? AdminReportDateViewController
         self.selectDateVC!.parentVC = self
         self.selectDateVC!.isForMonthly = isForMonthly

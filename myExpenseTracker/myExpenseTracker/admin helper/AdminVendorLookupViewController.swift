@@ -271,7 +271,7 @@ class AdminVendorLookupViewController: UIViewController, UITableViewDataSource, 
     
     func selectVendor() {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminVLookup", bundle: nil)
         let vc: AdminVendorLookupListingVC? = storyboard.instantiateViewController(withIdentifier: "AdminVendorLookupListingVC") as? AdminVendorLookupListingVC
         vc!.delegate = self
         self.navigationController!.pushViewController(vc!, animated: true)

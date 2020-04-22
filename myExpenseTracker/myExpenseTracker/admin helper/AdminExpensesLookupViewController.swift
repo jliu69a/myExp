@@ -13,6 +13,9 @@ class AdminExpensesLookupViewController: UIViewController, UIPickerViewDataSourc
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePickerView: UIPickerView!
     
+    @IBOutlet weak var toCurrentDateButton: UIButton!
+    @IBOutlet weak var showDataButton: UIButton!
+
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var selectedMonthIndex: Int = 0
@@ -38,6 +41,9 @@ class AdminExpensesLookupViewController: UIViewController, UIPickerViewDataSourc
         self.datePickerView.layer.borderColor = UIColor.black.cgColor
         self.datePickerView.layer.borderWidth = 0.5
         
+        self.toCurrentDateButton.layer.cornerRadius = 5
+        self.showDataButton.layer.cornerRadius = 5
+        
         self.toCurrentMonthAndYear()
     }
     
@@ -62,23 +68,6 @@ class AdminExpensesLookupViewController: UIViewController, UIPickerViewDataSourc
         print("> month : '\(monthText)' ")
         print("> ")
         self.getLookupData(yearText: yearText, monthText: monthText)
-
-        /*
-        let queryDateString = self.queryDate()
-        print("> ")
-        print("> SQL query date : \(queryDateString) ")
-
-        let yearText = DL_DataManager.sharedInstance.allYearsList[self.selectedYearIndex]
-        let yearValue = Int(yearText)!
-        let monthValue = self.selectedMonthIndex + 1
-        DL_DataManager.sharedInstance.generateMonthsAndDaysDisplay(year: yearValue, month: monthValue)
-        print("> all days = \(DL_DataManager.sharedInstance.monthDayDisplayList)")
-        print("> ")
-
-        let storyboard = UIStoryboard(name: "admin", bundle: nil)
-        let vc: AdminExpenseDetailsViewController? = storyboard.instantiateViewController(withIdentifier: "AdminExpenseDetailsViewController") as? AdminExpenseDetailsViewController
-        self.navigationController!.pushViewController(vc!, animated: true)
-        */
     }
     
     //MARK: - picker view source
@@ -161,7 +150,7 @@ class AdminExpensesLookupViewController: UIViewController, UIPickerViewDataSourc
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             
-            let storyboard = UIStoryboard(name: "admin", bundle: nil)
+            let storyboard = UIStoryboard(name: "adminELookup", bundle: nil)
             let vc: AdminExpenseDetailsViewController? = storyboard.instantiateViewController(withIdentifier: "AdminExpenseDetailsViewController") as? AdminExpenseDetailsViewController
             DL_DataManager.sharedInstance.selectedTopCollectionViewIndex = 0
             self.navigationController!.pushViewController(vc!, animated: true)

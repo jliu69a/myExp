@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Admin Location Checks View Controller-->
+        <scene sceneID="xWF-iP-lNC">
+            <objects>
+                <viewController storyboardIdentifier="AdminLocationChecksViewController" id="o1v-rZ-O76" customClass="AdminLocationChecksViewController" customModule="MyExp_7" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ewA-3H-a86">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIS-Cb-5FO" userLabel="top bar view">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSc-Po-M04">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SP-Xs-eCX">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="Ofl-CR-A5i"/>
+                                        </constraints>
+                                        <state key="normal" title="back" image="myExp_back.png">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gobackAction:" destination="o1v-rZ-O76" eventType="touchUpInside" id="tbk-7r-uv4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1SP-Xs-eCX" secondAttribute="bottom" id="3UN-20-Yis"/>
+                                    <constraint firstAttribute="bottom" secondItem="GSc-Po-M04" secondAttribute="bottom" id="3aM-h6-aEe"/>
+                                    <constraint firstItem="1SP-Xs-eCX" firstAttribute="leading" secondItem="LIS-Cb-5FO" secondAttribute="leading" id="AIC-Y5-gOm"/>
+                                    <constraint firstItem="GSc-Po-M04" firstAttribute="top" secondItem="LIS-Cb-5FO" secondAttribute="top" id="U1Z-tB-4oM"/>
+                                    <constraint firstItem="GSc-Po-M04" firstAttribute="leading" secondItem="LIS-Cb-5FO" secondAttribute="leading" id="fYu-K9-u57"/>
+                                    <constraint firstItem="1SP-Xs-eCX" firstAttribute="top" secondItem="LIS-Cb-5FO" secondAttribute="top" id="hQo-ju-x7V"/>
+                                    <constraint firstAttribute="height" constant="44" id="pin-FU-KYt"/>
+                                    <constraint firstAttribute="trailing" secondItem="GSc-Po-M04" secondAttribute="trailing" id="yc2-tI-Ce4"/>
+                                </constraints>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bwW-fW-OsY">
+                                <rect key="frame" x="10" y="54" width="300" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="pMR-cw-Y76"/>
+                                </constraints>
+                            </mapView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="location text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tNC-7V-wco">
+                                <rect key="frame" x="10" y="314" width="300" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yX1-ff-KJt">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gf7-iU-p8b"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XmU-f8-o8f" firstAttribute="bottom" secondItem="yX1-ff-KJt" secondAttribute="bottom" id="Bxt-c5-xu4"/>
+                            <constraint firstItem="LIS-Cb-5FO" firstAttribute="leading" secondItem="XmU-f8-o8f" secondAttribute="leading" id="EGk-hh-74E"/>
+                            <constraint firstItem="XmU-f8-o8f" firstAttribute="trailing" secondItem="tNC-7V-wco" secondAttribute="trailing" constant="10" id="FNy-1s-Tqj"/>
+                            <constraint firstItem="LIS-Cb-5FO" firstAttribute="top" secondItem="XmU-f8-o8f" secondAttribute="top" id="J4y-9Q-ipm"/>
+                            <constraint firstItem="yX1-ff-KJt" firstAttribute="trailing" secondItem="XmU-f8-o8f" secondAttribute="trailing" id="KNV-lN-yuI"/>
+                            <constraint firstItem="yX1-ff-KJt" firstAttribute="leading" secondItem="XmU-f8-o8f" secondAttribute="leading" id="NZ2-tT-fF5"/>
+                            <constraint firstItem="yX1-ff-KJt" firstAttribute="top" secondItem="tNC-7V-wco" secondAttribute="bottom" constant="10" id="OlH-X1-6yn"/>
+                            <constraint firstItem="XmU-f8-o8f" firstAttribute="trailing" secondItem="bwW-fW-OsY" secondAttribute="trailing" constant="10" id="TeE-4a-Kzk"/>
+                            <constraint firstItem="LIS-Cb-5FO" firstAttribute="trailing" secondItem="XmU-f8-o8f" secondAttribute="trailing" id="WAF-fG-iYf"/>
+                            <constraint firstItem="tNC-7V-wco" firstAttribute="leading" secondItem="XmU-f8-o8f" secondAttribute="leading" constant="10" id="gPo-AV-dQj"/>
+                            <constraint firstItem="bwW-fW-OsY" firstAttribute="top" secondItem="LIS-Cb-5FO" secondAttribute="bottom" constant="10" id="gyd-Ri-MUg"/>
+                            <constraint firstItem="bwW-fW-OsY" firstAttribute="leading" secondItem="XmU-f8-o8f" secondAttribute="leading" constant="10" id="jEJ-Hl-cda"/>
+                            <constraint firstItem="tNC-7V-wco" firstAttribute="top" secondItem="bwW-fW-OsY" secondAttribute="bottom" constant="10" id="xOG-Z0-BmW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XmU-f8-o8f"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="bwW-fW-OsY" id="wQF-4q-LVN"/>
+                        <outlet property="textView" destination="tNC-7V-wco" id="KJ1-Cs-3m1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gHu-Lq-O3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6210" y="153"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="myExp_back.png" width="33" height="33"/>
+    </resources>
+</document>

@@ -188,7 +188,7 @@ class AdminPaymentsVendorsVC: UIViewController, UITableViewDataSource, UITableVi
     
     func changeModel(isNew: Bool) {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminPV", bundle: nil)
         let vc: AdminPVEditViewController? = storyboard.instantiateViewController(withIdentifier: "AdminPVEditViewController") as? AdminPVEditViewController
         vc!.isForVendor = self.isForVendor
 

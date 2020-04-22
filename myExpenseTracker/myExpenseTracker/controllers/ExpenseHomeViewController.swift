@@ -108,7 +108,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBAction func showMoreAction(_ sender: Any) {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminHome", bundle: nil)
         let vc: AdminHomeViewController? = storyboard.instantiateViewController(withIdentifier: "AdminHomeViewController") as? AdminHomeViewController
         self.navigationController!.pushViewController(vc!, animated: true)
     }

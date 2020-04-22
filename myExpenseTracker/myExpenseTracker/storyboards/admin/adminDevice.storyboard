@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Admin Device Info View Controller-->
+        <scene sceneID="O5Y-vJ-BPe">
+            <objects>
+                <viewController storyboardIdentifier="AdminDeviceInfoViewController" id="yDs-PC-jf6" customClass="AdminDeviceInfoViewController" customModule="MyExp_7" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Heb-l4-0w4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeO-2i-AJO" userLabel="top bar view">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6F-Eo-ySC">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUG-1J-ylZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="DqN-90-2Dv"/>
+                                        </constraints>
+                                        <state key="normal" title="back" image="myExp_back.png">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gobackAction:" destination="yDs-PC-jf6" eventType="touchUpInside" id="zQB-ni-4C6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="p6F-Eo-ySC" secondAttribute="trailing" id="HcJ-7U-RiH"/>
+                                    <constraint firstAttribute="bottom" secondItem="p6F-Eo-ySC" secondAttribute="bottom" id="QbL-E3-FHY"/>
+                                    <constraint firstItem="DUG-1J-ylZ" firstAttribute="top" secondItem="zeO-2i-AJO" secondAttribute="top" id="THg-kn-WgV"/>
+                                    <constraint firstAttribute="bottom" secondItem="DUG-1J-ylZ" secondAttribute="bottom" id="aMj-XF-ajw"/>
+                                    <constraint firstItem="DUG-1J-ylZ" firstAttribute="leading" secondItem="zeO-2i-AJO" secondAttribute="leading" id="b5P-9A-4LA"/>
+                                    <constraint firstItem="p6F-Eo-ySC" firstAttribute="leading" secondItem="zeO-2i-AJO" secondAttribute="leading" id="isu-hv-bmI"/>
+                                    <constraint firstAttribute="height" constant="44" id="j6v-3d-Gw1"/>
+                                    <constraint firstItem="p6F-Eo-ySC" firstAttribute="top" secondItem="zeO-2i-AJO" secondAttribute="top" id="j9e-dZ-db6"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtQ-By-QDE">
+                                <rect key="frame" x="20" y="64" width="280" height="404"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QdH-ez-Q15">
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="5a6-ZH-wxI"/>
+                                    <constraint firstAttribute="height" constant="37" id="ZTQ-fm-cZC"/>
+                                </constraints>
+                                <color key="color" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4et-Vb-M4N">
+                                <rect key="frame" x="60" y="498" width="200" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="9sE-VQ-B0Z"/>
+                                    <constraint firstAttribute="height" constant="50" id="tF5-RM-BKn"/>
+                                </constraints>
+                                <state key="normal" title="Testing Link">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="testLinkAction:" destination="yDs-PC-jf6" eventType="touchUpInside" id="XgE-xz-Nxe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QdH-ez-Q15" firstAttribute="centerX" secondItem="Heb-l4-0w4" secondAttribute="centerX" id="0aF-Cd-AHp"/>
+                            <constraint firstItem="zeO-2i-AJO" firstAttribute="top" secondItem="gcd-6g-g91" secondAttribute="top" id="27Q-qM-5ld"/>
+                            <constraint firstItem="gcd-6g-g91" firstAttribute="bottom" secondItem="4et-Vb-M4N" secondAttribute="bottom" constant="20" id="4rg-1p-BID"/>
+                            <constraint firstItem="zeO-2i-AJO" firstAttribute="leading" secondItem="gcd-6g-g91" secondAttribute="leading" id="6Ph-hx-pgW"/>
+                            <constraint firstItem="zeO-2i-AJO" firstAttribute="trailing" secondItem="gcd-6g-g91" secondAttribute="trailing" id="IpV-ws-uhg"/>
+                            <constraint firstItem="HtQ-By-QDE" firstAttribute="leading" secondItem="gcd-6g-g91" secondAttribute="leading" constant="20" id="JTS-pi-whi"/>
+                            <constraint firstItem="gcd-6g-g91" firstAttribute="bottom" secondItem="HtQ-By-QDE" secondAttribute="bottom" constant="100" id="JUP-wL-g6Y"/>
+                            <constraint firstItem="gcd-6g-g91" firstAttribute="trailing" secondItem="HtQ-By-QDE" secondAttribute="trailing" constant="20" id="Kbq-a6-fOQ"/>
+                            <constraint firstItem="4et-Vb-M4N" firstAttribute="centerX" secondItem="Heb-l4-0w4" secondAttribute="centerX" id="spW-xF-a1d"/>
+                            <constraint firstItem="QdH-ez-Q15" firstAttribute="centerY" secondItem="Heb-l4-0w4" secondAttribute="centerY" id="v3s-VF-luO"/>
+                            <constraint firstItem="HtQ-By-QDE" firstAttribute="top" secondItem="zeO-2i-AJO" secondAttribute="bottom" constant="20" id="xcO-PB-qFo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gcd-6g-g91"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="QdH-ez-Q15" id="Iia-Ai-dei"/>
+                        <outlet property="deviceInfoTextView" destination="HtQ-By-QDE" id="Fin-Av-0AD"/>
+                        <outlet property="testLinkButton" destination="4et-Vb-M4N" id="8kx-E1-k0W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5yA-k0-696" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7151" y="153"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="myExp_back.png" width="33" height="33"/>
+    </resources>
+</document>

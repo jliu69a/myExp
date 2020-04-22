@@ -106,7 +106,7 @@ class AdminColorsViewController: UIViewController, AdminEditColorViewControllerD
     
     func selectColor(typeIndex: Int) {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminEditColor", bundle: nil)
         let vc: AdminEditColorViewController? = storyboard.instantiateViewController(withIdentifier: "AdminEditColorViewController") as? AdminEditColorViewController
         vc!.delegate = self
         vc!.colorTypeIndex = typeIndex

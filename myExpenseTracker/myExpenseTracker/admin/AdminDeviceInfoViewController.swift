@@ -14,6 +14,7 @@ class AdminDeviceInfoViewController: UIViewController {
     @IBOutlet weak var deviceInfoTextView: UITextView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var testLinkButton: UIButton!
     
     var batteryLevel: Float {
         return UIDevice.current.batteryLevel
@@ -43,6 +44,8 @@ class AdminDeviceInfoViewController: UIViewController {
         
         self.deviceInfoTextView.layer.borderColor = UIColor.black.cgColor
         self.deviceInfoTextView.layer.borderWidth = 0.5
+        
+        self.testLinkButton.layer.cornerRadius = 5
     }
     
     override func viewDidAppear(_ animated: Bool) {
