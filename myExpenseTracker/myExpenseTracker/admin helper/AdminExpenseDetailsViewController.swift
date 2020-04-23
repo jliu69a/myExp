@@ -19,12 +19,23 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
     var viewsList: [LookupListsViewController] = []
     
     var bottomSpace: CGFloat = 0
+    var currentDay: String = ""
+    var currentDateIndex: Int = 0
     
     
     //MARL: - init
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //-- current date
+        let rightNow: Date = Date()
+        let df: DateFormatter = DateFormatter()
+        df.dateFormat = "M/d"
+        self.currentDay = df.string(from: rightNow)
+        df.dateFormat = "d"
+        let dateText: String = df.string(from: rightNow)
+        self.currentDateIndex = Int(dateText)! - 1
         
         self.maxSize = DL_DataManager.sharedInstance.totalDaysInMonth
         self.createVC()
@@ -71,6 +82,12 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
         self.myCollectionView!.frame = CGRect(x: 0, y: 0, width: width, height: height)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //-- scroll to current date
+        self.showDataByIndex(index: self.currentDateIndex)
+    }
     
     //MARK: - IB actions
     
@@ -95,11 +112,12 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
             let cell:ListsCell? = self.topCollectionView.dequeueReusableCell(withReuseIdentifier: "TopCellId", for: indexPath) as? ListsCell
             
             let dateText = DL_DataManager.sharedInstance.monthDayDisplayList[indexPath.row]
+            let weekText = DL_DataManager.sharedInstance.dayOfWeekDisplayList[indexPath.row]
             let data: [ExpenseModel] = DL_DataManager.sharedInstance.lookupExpenseDict[dateText] ?? []
             let isEmpty: Bool = (data.count == 0) ? true : false
             
             cell!.parentVC = self
-            cell!.showDate(date: dateText, isEmpty: isEmpty)
+            cell!.showDate(date: dateText, week: weekText, isEmpty: isEmpty)
             cell!.index = indexPath.row
             
             if indexPath.row == DL_DataManager.sharedInstance.selectedTopCollectionViewIndex {
@@ -108,7 +126,7 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
             else {
                 cell!.showIndicator(isSelected: false)
             }
-
+            
             return cell!
         }
         else {
@@ -150,9 +168,12 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
     }
     
     func displayTopScrollViewWithIndex(index: Int, animated: Bool) {
+        self.displayTopScrollViewWithIndex(index: index, animated: animated, isToLeft: true)
+    }
+    
+    func displayTopScrollViewWithIndex(index: Int, animated: Bool, isToLeft: Bool) {
         
         if let previousCell: ListsCell = self.topCollectionView.cellForItem(at: IndexPath(item: DL_DataManager.sharedInstance.selectedTopCollectionViewIndex, section: 0)) as? ListsCell {
-            //previousCell.hideIndicator()
             previousCell.showIndicator(isSelected: false)
         }
         
@@ -161,20 +182,29 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
             currentCell.showIndicator(isSelected: true)
         }
         
-        self.topCollectionView.scrollToItem(at: IndexPath(item: DL_DataManager.sharedInstance.selectedTopCollectionViewIndex, section: 0), at: .left, animated: animated)
+        if isToLeft {
+            self.topCollectionView.scrollToItem(at: IndexPath(item: DL_DataManager.sharedInstance.selectedTopCollectionViewIndex, section: 0), at: .left, animated: animated)
+        }
+        else {
+            self.topCollectionView.scrollToItem(at: IndexPath(item: DL_DataManager.sharedInstance.selectedTopCollectionViewIndex, section: 0), at: .right, animated: animated)
+        }
     }
     
     //MARK: - selecting cell
     
     func didSelectCellAtIndex(index: Int) {
         
-        //DLDataManager.sharedInstance.selectedTopCollectionViewIndex = index
         self.myCollectionView!.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: true)
         print("> ")
         print("> top, selected cell index = \(DL_DataManager.sharedInstance.selectedTopCollectionViewIndex) ")
         print("> ")
         
-        self.displayTopScrollViewWithIndex(index: index, animated: true)
+        self.displayTopScrollViewWithIndex(index: index, animated: true, isToLeft: true)
+    }
+    
+    func showDataByIndex(index: Int) {
+        self.myCollectionView!.scrollToItem(at: IndexPath(item: index, section: 0), at: .right, animated: true)
+        self.displayTopScrollViewWithIndex(index: index, animated: true, isToLeft: false)
     }
     
     //MARK: - collection data
@@ -184,21 +214,16 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
         let storyboard = UIStoryboard(name: "lookup", bundle: nil)
         self.viewsList.removeAll()
         
-//        for eachDay in DL_DataManager.sharedInstance.monthDayDisplayList {
-//            let dateString: String = String(format: "Date: %@", eachDay)
-//            let explist: [ExpenseModel] = DL_DataManager.sharedInstance.lookupExpenseDict[eachDay] ?? []
-//
-//            let vc: LookupListsViewController? = storyboard.instantiateViewController(withIdentifier: "LookupListsViewController") as? LookupListsViewController
-//            vc!.delegate = self
-//            vc!.lookupData(data: explist, dateString: dateString)
-//            self.viewsList.append(vc!)
-//        }
-        
         for i in 0..<DL_DataManager.sharedInstance.monthDayDisplayList.count {
             let eachDay: String = DL_DataManager.sharedInstance.monthDayDisplayList[i]
             let eachWeekday: String = DL_DataManager.sharedInstance.dayOfWeekDisplayList[i]
             
-            let dateString: String = String(format: "Date: %@, %@", eachDay, eachWeekday)
+            var todayNote: String = ""
+            if i == self.currentDateIndex {
+                todayNote = "  (today)"
+            }
+            
+            let dateString: String = String(format: "%@, %@%@", eachDay, eachWeekday, todayNote)
             let explist: [ExpenseModel] = DL_DataManager.sharedInstance.lookupExpenseDict[eachDay] ?? []
             
             let vc: LookupListsViewController? = storyboard.instantiateViewController(withIdentifier: "LookupListsViewController") as? LookupListsViewController

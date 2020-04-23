@@ -91,7 +91,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gv1-rW-QoT" userLabel="date picker view">
-                                <rect key="frame" x="10" y="144" width="300" height="224"/>
+                                <rect key="frame" x="10" y="114" width="300" height="254"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qzs-aq-0q4" id="UOm-UF-hwp"/>
                                     <outlet property="delegate" destination="qzs-aq-0q4" id="TJf-mY-98t"/>
@@ -113,7 +113,7 @@
                             <constraint firstItem="V80-Ob-yAT" firstAttribute="top" secondItem="QbV-6m-WQu" secondAttribute="top" id="5AT-uW-GGL"/>
                             <constraint firstItem="QbV-6m-WQu" firstAttribute="trailing" secondItem="Hx1-o5-XgB" secondAttribute="trailing" constant="40" id="5kO-f3-mdU"/>
                             <constraint firstItem="V80-Ob-yAT" firstAttribute="trailing" secondItem="QbV-6m-WQu" secondAttribute="trailing" id="Amy-Kk-EeK"/>
-                            <constraint firstItem="gv1-rW-QoT" firstAttribute="top" secondItem="G9h-CV-qkd" secondAttribute="bottom" constant="60" id="H8Z-2O-iet"/>
+                            <constraint firstItem="gv1-rW-QoT" firstAttribute="top" secondItem="G9h-CV-qkd" secondAttribute="bottom" constant="30" id="H8Z-2O-iet"/>
                             <constraint firstItem="gv1-rW-QoT" firstAttribute="trailing" secondItem="QbV-6m-WQu" secondAttribute="trailing" constant="-10" id="HLd-CP-BNu"/>
                             <constraint firstItem="ADx-eZ-N5E" firstAttribute="centerX" secondItem="fRi-le-H0y" secondAttribute="centerX" id="NkU-Q9-m4h"/>
                             <constraint firstItem="gv1-rW-QoT" firstAttribute="leading" secondItem="QbV-6m-WQu" secondAttribute="leading" constant="10" id="PnL-we-Jyx"/>

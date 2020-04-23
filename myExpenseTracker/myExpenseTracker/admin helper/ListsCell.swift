@@ -11,6 +11,7 @@ import UIKit
 class ListsCell: UICollectionViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet weak var indicatorLabel: UILabel!
     
     weak var parentVC: AdminExpenseDetailsViewController? = nil
@@ -22,9 +23,16 @@ class ListsCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func showDate(date: String, isEmpty: Bool) {
+    func showDate(date: String, week: String, isEmpty: Bool) {
         self.dateLabel.text = date
-        self.dateLabel.textColor = isEmpty ? UIColor.blue : UIColor.green
+        self.weekLabel.text = week
+        
+        if date == self.parentVC!.currentDay {
+            self.dateLabel.textColor = UIColor.red
+        }
+        else {
+            self.dateLabel.textColor = isEmpty ? UIColor.blue : UIColor.green
+        }
     }
     
     func showIndicator(isSelected: Bool) {

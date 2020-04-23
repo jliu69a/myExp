@@ -19,10 +19,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wL-Xi-6BU" userLabel="label view">
                                 <rect key="frame" x="30" y="0.0" width="260" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksQ-YM-4gZ">
-                                        <rect key="frame" x="10" y="0.0" width="240" height="44"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksQ-YM-4gZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -30,9 +30,9 @@
                                 <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ksQ-YM-4gZ" firstAttribute="top" secondItem="4wL-Xi-6BU" secondAttribute="top" id="2IC-cv-KeE"/>
-                                    <constraint firstItem="ksQ-YM-4gZ" firstAttribute="leading" secondItem="4wL-Xi-6BU" secondAttribute="leading" constant="10" id="Vbf-bu-p9t"/>
+                                    <constraint firstItem="ksQ-YM-4gZ" firstAttribute="leading" secondItem="4wL-Xi-6BU" secondAttribute="leading" id="Vbf-bu-p9t"/>
                                     <constraint firstAttribute="bottom" secondItem="ksQ-YM-4gZ" secondAttribute="bottom" id="cpf-GE-EDR"/>
-                                    <constraint firstAttribute="trailing" secondItem="ksQ-YM-4gZ" secondAttribute="trailing" constant="10" id="gsY-rc-Vw7"/>
+                                    <constraint firstAttribute="trailing" secondItem="ksQ-YM-4gZ" secondAttribute="trailing" id="gsY-rc-Vw7"/>
                                     <constraint firstAttribute="height" constant="44" id="ogb-Es-cdA"/>
                                 </constraints>
                             </view>

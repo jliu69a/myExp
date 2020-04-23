@@ -22,23 +22,30 @@ class ChangeDateViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var selectButton: UIButton!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     weak var delegate: ChangeDateViewControllerDelegate?
     
     var currentDate: Date = Date()
+    var df: DateFormatter = DateFormatter()
     
     //MARK: - init
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.df.dateFormat = "M/d, EEE"
+        self.datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         
         self.datePicker.date = self.currentDate
-        
+        self.displayDate(currentDate: self.datePicker.date)
+
         self.todayButton.layer.cornerRadius = 5
         self.cancelButton.layer.cornerRadius = 5
         self.selectButton.layer.cornerRadius = 5
@@ -62,4 +69,17 @@ class ChangeDateViewController: UIViewController {
     @IBAction func selectPickerDateAction(_ sender: Any) {
         self.delegate!.selectNewDate(date: self.datePicker.date)
     }
+    
+    //MARK: - date picker
+    
+    @objc func dateChanged(_ sender: UIDatePicker) {
+        self.displayDate(currentDate: self.datePicker.date)
+    }
+    
+    func displayDate(currentDate: Date) {
+        
+        let dateString: String = df.string(from: self.datePicker.date)
+        self.titleLabel.text = String(format: "Date : %@", dateString)
+    }
+    
 }
