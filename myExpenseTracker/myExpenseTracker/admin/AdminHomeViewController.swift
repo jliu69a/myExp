@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 
-class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
+class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, AdminReportDateViewControllerDelegate {
     
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -292,13 +292,13 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    //MARK: - date selection
+    //MARK: - date selection & delegate
     
     func showDateSelection(isForMonthly: Bool, isForDataExport: Bool) {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "adminReports", bundle: nil)
         self.selectDateVC = storyboard.instantiateViewController(withIdentifier: "AdminReportDateViewController") as? AdminReportDateViewController
-        self.selectDateVC!.parentVC = self
+        self.selectDateVC!.delegate = self
         self.selectDateVC!.isForMonthly = isForMonthly
         self.selectDateVC!.isForDataExport = isForDataExport
         

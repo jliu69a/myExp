@@ -8,6 +8,13 @@
 
 import UIKit
 
+
+protocol AdminReportDateViewControllerDelegate: AnyObject {
+    
+    func closeDateSelection()
+}
+
+
 class AdminReportDateViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var selectButton: UIButton!
@@ -15,7 +22,7 @@ class AdminReportDateViewController: UIViewController, UIPickerViewDataSource, U
     @IBOutlet weak var selectionPicker: UIPickerView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    weak var parentVC: AdminHomeViewController? = nil
+    weak var delegate: AdminReportDateViewControllerDelegate?
     
     var isForMonthly: Bool = false
     var isForDataExport: Bool = false
@@ -103,7 +110,7 @@ class AdminReportDateViewController: UIViewController, UIPickerViewDataSource, U
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        self.parentVC!.closeDateSelection()
+        self.delegate?.closeDateSelection()
     }
     
     //MARK: - picker data source
