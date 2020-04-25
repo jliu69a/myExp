@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ChangeDateViewControllerDelegate {
+class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ChangeDateViewControllerDelegate, EditExpensesViewControllerDelegate {
     
     @IBOutlet weak var displayDateLabel: UILabel!
     @IBOutlet weak var displayAmountLabel: UILabel!
@@ -128,7 +128,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         let storyboard: UIStoryboard = UIStoryboard(name: "expenseHome", bundle: nil)
         self.editExpenseVC = storyboard.instantiateViewController(withIdentifier: "EditExpensesViewController") as? EditExpensesViewController
         self.editExpenseVC!.selectedModel = nil
-        self.editExpenseVC!.parentVC = self
+        self.editExpenseVC!.delegate = self
         self.navigationController!.pushViewController(self.editExpenseVC!, animated: true)
     }
     
@@ -265,7 +265,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
     
     //MARK: - edit & delete
     
-    func showProcessIndicator() {
+    func startShowingActivityIndicator() {
         self.activityIndicator.startAnimating()
     }
     
@@ -283,7 +283,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
             let storyboard: UIStoryboard = UIStoryboard(name: "expenseHome", bundle: nil)
             self.editExpenseVC = storyboard.instantiateViewController(withIdentifier: "EditExpensesViewController") as? EditExpensesViewController
             self.editExpenseVC!.selectedModel = self.selectedExpenseItem
-            self.editExpenseVC!.parentVC = self
+            self.editExpenseVC!.delegate = self
             self.navigationController!.pushViewController(self.editExpenseVC!, animated: true)
         }
         

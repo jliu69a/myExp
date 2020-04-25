@@ -121,7 +121,7 @@
 		5A817FB322FA7A830020FA4F /* AdminVendorLookupListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendorLookupListingVC.swift; sourceTree = "<group>"; };
 		5A817FB522FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendorLookupYearsVC.swift; sourceTree = "<group>"; };
 		5AA2DF2C244934C100F17762 /* CalaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalaManager.swift; sourceTree = "<group>"; };
-		5ACF01FB223EFEC400FBD3DC /* MyExp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ACF01FB223EFEC400FBD3DC /* MyExp 9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyExp 9.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ACF0200223EFEC400FBD3DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5ACF0203223EFEC400FBD3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 		5ACF01FC223EFEC400FBD3DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5ACF01FB223EFEC400FBD3DC /* MyExp.app */,
+				5ACF01FB223EFEC400FBD3DC /* MyExp 9.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -421,7 +421,7 @@
 			);
 			name = myExpenseTracker;
 			productName = myExpenseTracker;
-			productReference = 5ACF01FB223EFEC400FBD3DC /* MyExp.app */;
+			productReference = 5ACF01FB223EFEC400FBD3DC /* MyExp 9.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -737,7 +737,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = WSH8T4CK9T;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -748,8 +748,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker";
-				PRODUCT_NAME = MyExp;
+				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker.9";
+				PRODUCT_NAME = "MyExp 9";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -763,7 +763,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = WSH8T4CK9T;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -774,8 +774,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker";
-				PRODUCT_NAME = MyExp;
+				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker.9";
+				PRODUCT_NAME = "MyExp 9";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

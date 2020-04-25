@@ -10,6 +10,12 @@ import UIKit
 import Foundation
 
 
+protocol EditExpensesViewControllerDelegate: AnyObject {
+    
+    func startShowingActivityIndicator()
+}
+
+
 class EditExpensesViewController: UIViewController, UITextFieldDelegate, ChangeDateViewControllerDelegate, PaymentsVendorsViewControllerDelegate {
     
     //@IBOutlet weak var titleBarButtonItem: UIBarButtonItem!
@@ -27,6 +33,8 @@ class EditExpensesViewController: UIViewController, UITextFieldDelegate, ChangeD
     
     @IBOutlet weak var backBarButtonItem: UIBarButtonItem!  //-- unlinked
     
+    weak var delegate: EditExpensesViewControllerDelegate?
+    
     var changeDateVC: ChangeDateViewController? = nil
     var selectedModel: ExpenseModel? = nil
     
@@ -36,8 +44,6 @@ class EditExpensesViewController: UIViewController, UITextFieldDelegate, ChangeD
     
     var isDataChanged: Bool = false
     var amountData: String = ""
-    
-    weak var parentVC: ExpenseHomeViewController? = nil
     
     //MARK: - init
     
@@ -153,7 +159,7 @@ class EditExpensesViewController: UIViewController, UITextFieldDelegate, ChangeD
             return
         }
         
-        self.parentVC!.showProcessIndicator()
+        self.delegate?.startShowingActivityIndicator()
         self.prepareData()
         self.navigationController!.popViewController(animated: true)
     }
