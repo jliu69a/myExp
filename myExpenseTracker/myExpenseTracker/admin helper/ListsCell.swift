@@ -8,14 +8,22 @@
 
 import UIKit
 
+
+protocol ListsCellDelegate: AnyObject {
+    
+    func didSelectCellAtIndex(index: Int)
+}
+
+
 class ListsCell: UICollectionViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet weak var indicatorLabel: UILabel!
     
-    weak var parentVC: AdminExpenseDetailsViewController? = nil
+    weak var delegate: ListsCellDelegate?
     
+    var currentDay: String = ""
     var index: Int = 0
 
     override func awakeFromNib() {
@@ -27,7 +35,7 @@ class ListsCell: UICollectionViewCell {
         self.dateLabel.text = date
         self.weekLabel.text = week
         
-        if date == self.parentVC!.currentDay {
+        if date == self.currentDay {
             self.dateLabel.textColor = UIColor.red
         }
         else {
@@ -45,7 +53,7 @@ class ListsCell: UICollectionViewCell {
     }
     
     @IBAction func selectAction(_ sender: Any) {
-        self.parentVC!.didSelectCellAtIndex(index: index)
+        self.delegate?.didSelectCellAtIndex(index: index)
     }
     
 }

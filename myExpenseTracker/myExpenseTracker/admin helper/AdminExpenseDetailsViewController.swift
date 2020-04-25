@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, LookupListsViewControllerDelegate {
+class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, LookupListsViewControllerDelegate, ListsCellDelegate {
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var topCollectionView: UICollectionView!
@@ -116,7 +116,7 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
             let data: [ExpenseModel] = DL_DataManager.sharedInstance.lookupExpenseDict[dateText] ?? []
             let isEmpty: Bool = (data.count == 0) ? true : false
             
-            cell!.parentVC = self
+            cell!.delegate = self
             cell!.showDate(date: dateText, week: weekText, isEmpty: isEmpty)
             cell!.index = indexPath.row
             
@@ -178,6 +178,10 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
         }
         
         DL_DataManager.sharedInstance.selectedTopCollectionViewIndex = index
+        print("> ")
+        print("> top, selected cell index = \(DL_DataManager.sharedInstance.selectedTopCollectionViewIndex) ")
+        print("> ")
+        
         if let currentCell: ListsCell = self.topCollectionView.cellForItem(at: IndexPath(item: DL_DataManager.sharedInstance.selectedTopCollectionViewIndex, section: 0)) as? ListsCell {
             currentCell.showIndicator(isSelected: true)
         }
@@ -190,15 +194,11 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
         }
     }
     
-    //MARK: - selecting cell
+    //MARK: - cell delegate
     
     func didSelectCellAtIndex(index: Int) {
         
         self.myCollectionView!.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: true)
-        print("> ")
-        print("> top, selected cell index = \(DL_DataManager.sharedInstance.selectedTopCollectionViewIndex) ")
-        print("> ")
-        
         self.displayTopScrollViewWithIndex(index: index, animated: true, isToLeft: true)
     }
     

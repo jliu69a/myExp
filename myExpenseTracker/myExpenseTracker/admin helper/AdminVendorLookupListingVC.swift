@@ -21,7 +21,6 @@ class AdminVendorLookupListingVC: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var cancelButton: UIButton!
     
     weak var delegate: AdminVendorLookupListingVCDelegate?
-    weak var parentVC: AdminVendorLookupViewController? = nil
 
     
     //MARK: - init
