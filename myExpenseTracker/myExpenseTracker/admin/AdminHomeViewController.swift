@@ -182,7 +182,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     func showReports() {
         self.closeDateSelection()
 
-        let storyboard: UIStoryboard = UIStoryboard(name: "admin", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "adminReports", bundle: nil)
         let vc: AdminShowReportsViewController? = storyboard.instantiateViewController(withIdentifier: "AdminShowReportsViewController") as? AdminShowReportsViewController
         self.navigationController!.pushViewController(vc!, animated: true)
     }
