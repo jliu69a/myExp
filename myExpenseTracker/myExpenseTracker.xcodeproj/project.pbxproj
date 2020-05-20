@@ -21,6 +21,8 @@
 		5A3E459722923D440087B1E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3E459622923D440087B1E4 /* SystemConfiguration.framework */; };
 		5A3E459922923E120087B1E4 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E459822923E120087B1E4 /* AlertManager.swift */; };
 		5A4605F823E523B80010003A /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A4605F723E523B80010003A /* readme.txt */; };
+		5A5C19C02474B903006DF28F /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C19BF2474B903006DF28F /* HomePageViewController.swift */; };
+		5A5C19C32474B92B006DF28F /* homePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5C19C22474B92B006DF28F /* homePage.storyboard */; };
 		5A78A9C5244B8CB700E69674 /* AdminExpenseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A78A9C4244B8CB700E69674 /* AdminExpenseDetailsViewController.swift */; };
 		5A78A9C8244B8F5400E69674 /* ListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A78A9C6244B8F5400E69674 /* ListsCell.swift */; };
 		5A78A9C9244B8F5400E69674 /* ListsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A78A9C7244B8F5400E69674 /* ListsCell.xib */; };
@@ -103,6 +105,8 @@
 		5A3E459622923D440087B1E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5A3E459822923E120087B1E4 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		5A4605F723E523B80010003A /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		5A5C19BF2474B903006DF28F /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		5A5C19C22474B92B006DF28F /* homePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = homePage.storyboard; sourceTree = "<group>"; };
 		5A78A9C4244B8CB700E69674 /* AdminExpenseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminExpenseDetailsViewController.swift; sourceTree = "<group>"; };
 		5A78A9C6244B8F5400E69674 /* ListsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsCell.swift; sourceTree = "<group>"; };
 		5A78A9C7244B8F5400E69674 /* ListsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListsCell.xib; sourceTree = "<group>"; };
@@ -219,6 +223,22 @@
 			path = notes;
 			sourceTree = "<group>";
 		};
+		5A5C19BE2474B86E006DF28F /* home_page */ = {
+			isa = PBXGroup;
+			children = (
+				5A5C19BF2474B903006DF28F /* HomePageViewController.swift */,
+			);
+			path = home_page;
+			sourceTree = "<group>";
+		};
+		5A5C19C12474B91A006DF28F /* home_page */ = {
+			isa = PBXGroup;
+			children = (
+				5A5C19C22474B92B006DF28F /* homePage.storyboard */,
+			);
+			path = home_page;
+			sourceTree = "<group>";
+		};
 		5A78A9CA244B8FDD00E69674 /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +341,7 @@
 		5ACF0211223EFFE800FBD3DC /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A5C19BE2474B86E006DF28F /* home_page */,
 				5ACF0237223F0EF100FBD3DC /* ExpenseHomeViewController.swift */,
 				5ACF0234223F0EF100FBD3DC /* ExpenseCell.swift */,
 				5ACF0236223F0EF100FBD3DC /* ExpenseCell.xib */,
@@ -375,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1538FD244E4F190090EE0B /* admin */,
+				5A5C19C12474B91A006DF28F /* home_page */,
 				5ACF0263223F0F6800FBD3DC /* expenseHome.storyboard */,
 				5ACF0260223F0F6700FBD3DC /* loginRegister.storyboard */,
 				5ACF0261223F0F6700FBD3DC /* pandv.storyboard */,
@@ -474,6 +496,7 @@
 				5ACF0209223EFEC500FBD3DC /* LaunchScreen.storyboard in Resources */,
 				5ACF0206223EFEC500FBD3DC /* Assets.xcassets in Resources */,
 				5ACF0224223F0CC400FBD3DC /* myExp_back.png in Resources */,
+				5A5C19C32474B92B006DF28F /* homePage.storyboard in Resources */,
 				5A4605F823E523B80010003A /* readme.txt in Resources */,
 				5ACF0223223F0CC400FBD3DC /* myExp_more.png in Resources */,
 				5ACF0241223F0EF100FBD3DC /* PAndVCell.xib in Resources */,
@@ -557,6 +580,7 @@
 				5A78A9CC244B8FF300E69674 /* UIDeviceExtension.swift in Sources */,
 				5ACF023E223F0EF100FBD3DC /* LoginRegisterViewController.swift in Sources */,
 				5ACF0240223F0EF100FBD3DC /* ExpenseHomeViewController.swift in Sources */,
+				5A5C19C02474B903006DF28F /* HomePageViewController.swift in Sources */,
 				5ACF0253223F0F1400FBD3DC /* AdminEditColorViewController.swift in Sources */,
 				5A3E459522923D250087B1E4 /* Reachability.swift in Sources */,
 				5A78A9C8244B8F5400E69674 /* ListsCell.swift in Sources */,

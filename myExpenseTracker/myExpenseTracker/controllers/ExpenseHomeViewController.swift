@@ -24,6 +24,8 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
     
     var editExpenseVC: EditExpensesViewController? = nil
     
+    var navController: UINavigationController? = nil
+    
     //MARK: - init
     
     override func viewDidLoad() {
@@ -106,12 +108,12 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
     
     //MARK: - IBAction
     
-    @IBAction func showMoreAction(_ sender: Any) {
-        
-        let storyboard: UIStoryboard = UIStoryboard(name: "adminHome", bundle: nil)
-        let vc: AdminHomeViewController? = storyboard.instantiateViewController(withIdentifier: "AdminHomeViewController") as? AdminHomeViewController
-        self.navigationController!.pushViewController(vc!, animated: true)
-    }
+    //-- not used
+//    @IBAction func showMoreAction(_ sender: Any) {
+//        let storyboard: UIStoryboard = UIStoryboard(name: "adminHome", bundle: nil)
+//        let vc: AdminHomeViewController? = storyboard.instantiateViewController(withIdentifier: "AdminHomeViewController") as? AdminHomeViewController
+//        self.navigationController!.pushViewController(vc!, animated: true)
+//    }
     
     @IBAction func changeDateAction(_ sender: Any) {
         
@@ -129,7 +131,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
         self.editExpenseVC = storyboard.instantiateViewController(withIdentifier: "EditExpensesViewController") as? EditExpensesViewController
         self.editExpenseVC!.selectedModel = nil
         self.editExpenseVC!.delegate = self
-        self.navigationController!.pushViewController(self.editExpenseVC!, animated: true)
+        self.navController!.pushViewController(self.editExpenseVC!, animated: true)
     }
     
     //MARK: - titles data
@@ -284,7 +286,7 @@ class ExpenseHomeViewController: UIViewController, UITableViewDataSource, UITabl
             self.editExpenseVC = storyboard.instantiateViewController(withIdentifier: "EditExpensesViewController") as? EditExpensesViewController
             self.editExpenseVC!.selectedModel = self.selectedExpenseItem
             self.editExpenseVC!.delegate = self
-            self.navigationController!.pushViewController(self.editExpenseVC!, animated: true)
+            self.navController!.pushViewController(self.editExpenseVC!, animated: true)
         }
         
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { (action) in

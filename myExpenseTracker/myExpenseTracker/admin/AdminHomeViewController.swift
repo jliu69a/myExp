@@ -15,6 +15,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var navController: UINavigationController? = nil
     
     var selectDateVC: AdminReportDateViewController? = nil
     var reportDate: Date = Date()
@@ -44,12 +45,6 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         
         self.tableView.layer.borderColor = UIColor.black.cgColor
         self.tableView.layer.borderWidth = 0.5
-    }
-    
-    //MARK: - IB actions
-    
-    @IBAction func gobackAction(_ sender: Any) {
-        self.navigationController!.popViewController(animated: true)
     }
     
     //MARK: - table view source
@@ -142,7 +137,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         
         let storyboard: UIStoryboard = UIStoryboard(name: "adminColors", bundle: nil)
         let vc: AdminColorsViewController? = storyboard.instantiateViewController(withIdentifier: "AdminColorsViewController") as? AdminColorsViewController
-        self.navigationController!.pushViewController(vc!, animated: true)
+        self.navController!.pushViewController(vc!, animated: true)
     }
     
     //MARK: - payment & vendor
@@ -152,7 +147,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         let storyboard: UIStoryboard = UIStoryboard(name: "adminPV", bundle: nil)
         let vc: AdminPaymentsVendorsVC? = storyboard.instantiateViewController(withIdentifier: "AdminPaymentsVendorsVC") as? AdminPaymentsVendorsVC
         vc!.isForVendor = isForVendor
-        self.navigationController!.pushViewController(vc!, animated: true)
+        self.navController!.pushViewController(vc!, animated: true)
     }
     
     //MARK: - reports
@@ -184,7 +179,7 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
 
         let storyboard: UIStoryboard = UIStoryboard(name: "adminReports", bundle: nil)
         let vc: AdminShowReportsViewController? = storyboard.instantiateViewController(withIdentifier: "AdminShowReportsViewController") as? AdminShowReportsViewController
-        self.navigationController!.pushViewController(vc!, animated: true)
+        self.navController!.pushViewController(vc!, animated: true)
     }
     
     //MARK: - export
@@ -252,28 +247,28 @@ class AdminHomeViewController: UIViewController, UITableViewDataSource, UITableV
         
         let storyboard: UIStoryboard = UIStoryboard(name: "adminVLookup", bundle: nil)
         let vc: AdminVendorLookupViewController? = storyboard.instantiateViewController(withIdentifier: "AdminVendorLookupViewController") as? AdminVendorLookupViewController
-        self.navigationController!.pushViewController(vc!, animated: true)
+        self.navController!.pushViewController(vc!, animated: true)
     }
     
     func expensesLookup() {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "adminELookup", bundle: nil)
         let vc: AdminExpensesLookupViewController? = storyboard.instantiateViewController(withIdentifier: "AdminExpensesLookupViewController") as? AdminExpensesLookupViewController
-        self.navigationController!.pushViewController(vc!, animated: true)
+        self.navController!.pushViewController(vc!, animated: true)
     }
     
     func checkLocations() {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "adminLocations", bundle: nil)
         let vc: AdminLocationChecksViewController? = storyboard.instantiateViewController(withIdentifier: "AdminLocationChecksViewController") as? AdminLocationChecksViewController
-        self.navigationController!.pushViewController(vc!, animated: true)
+        self.navController!.pushViewController(vc!, animated: true)
     }
     
     func checkDeviceInfo() {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "adminDevice", bundle: nil)
         let vc: AdminDeviceInfoViewController? = storyboard.instantiateViewController(withIdentifier: "AdminDeviceInfoViewController") as? AdminDeviceInfoViewController
-        self.navigationController!.pushViewController(vc!, animated: true)
+        self.navController!.pushViewController(vc!, animated: true)
     }
     
     //MARK: - notification

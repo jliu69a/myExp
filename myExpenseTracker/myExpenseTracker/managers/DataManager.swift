@@ -49,6 +49,8 @@ class DataManager: NSObject {
     
     var currentDate: Date = Date()
     
+    var selectedCollectionViewIndex: Int = 0
+    
     //MARK: - initial data
     
     func loadInitialData() {
