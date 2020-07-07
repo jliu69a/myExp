@@ -31,12 +31,13 @@ class ListsCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func showDate(date: String, week: String, isEmpty: Bool) {
+    func showDate(date: String, week: String, isEmpty: Bool, isToday: Bool) {
         self.dateLabel.text = date
         self.weekLabel.text = week
         
-        if date == self.currentDay {
+        if isToday == true {
             self.dateLabel.textColor = UIColor.red
+            self.indicatorLabel.backgroundColor = isEmpty ? UIColor.darkGray : UIColor.green
         }
         else {
             self.dateLabel.textColor = isEmpty ? UIColor.blue : UIColor.green

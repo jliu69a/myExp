@@ -41,6 +41,7 @@
 		5A817FB422FA7A830020FA4F /* AdminVendorLookupListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A817FB322FA7A830020FA4F /* AdminVendorLookupListingVC.swift */; };
 		5A817FB622FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A817FB522FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift */; };
 		5AA2DF2D244934C100F17762 /* CalaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2DF2C244934C100F17762 /* CalaManager.swift */; };
+		5AAD38332491AD3E00F52F66 /* AdminSelectDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAD38322491AD3E00F52F66 /* AdminSelectDatesViewController.swift */; };
 		5ACF01FF223EFEC400FBD3DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */; };
 		5ACF0201223EFEC400FBD3DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF0200223EFEC400FBD3DC /* ViewController.swift */; };
 		5ACF0204223EFEC400FBD3DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF0202223EFEC400FBD3DC /* Main.storyboard */; };
@@ -125,7 +126,8 @@
 		5A817FB322FA7A830020FA4F /* AdminVendorLookupListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendorLookupListingVC.swift; sourceTree = "<group>"; };
 		5A817FB522FA7AB00020FA4F /* AdminVendorLookupYearsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendorLookupYearsVC.swift; sourceTree = "<group>"; };
 		5AA2DF2C244934C100F17762 /* CalaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalaManager.swift; sourceTree = "<group>"; };
-		5ACF01FB223EFEC400FBD3DC /* MyExp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AAD38322491AD3E00F52F66 /* AdminSelectDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSelectDatesViewController.swift; sourceTree = "<group>"; };
+		5ACF01FB223EFEC400FBD3DC /* MyExp 12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyExp 12.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACF01FE223EFEC400FBD3DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ACF0200223EFEC400FBD3DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5ACF0203223EFEC400FBD3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -290,7 +292,7 @@
 		5ACF01FC223EFEC400FBD3DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5ACF01FB223EFEC400FBD3DC /* MyExp.app */,
+				5ACF01FB223EFEC400FBD3DC /* MyExp 12.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -334,6 +336,7 @@
 				5ACF0251223F0F1400FBD3DC /* AdminShowReportsViewController.swift */,
 				5ACF0250223F0F1400FBD3DC /* AdminLocationChecksViewController.swift */,
 				5ACF0249223F0F1300FBD3DC /* AdminDeviceInfoViewController.swift */,
+				5AAD38322491AD3E00F52F66 /* AdminSelectDatesViewController.swift */,
 			);
 			path = admin;
 			sourceTree = "<group>";
@@ -443,7 +446,7 @@
 			);
 			name = myExpenseTracker;
 			productName = myExpenseTracker;
-			productReference = 5ACF01FB223EFEC400FBD3DC /* MyExp.app */;
+			productReference = 5ACF01FB223EFEC400FBD3DC /* MyExp 12.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -590,6 +593,7 @@
 				5ACF023D223F0EF100FBD3DC /* ExpenseCell.swift in Sources */,
 				5ACF025D223F0F1400FBD3DC /* AdminLocationChecksViewController.swift in Sources */,
 				5A316053243EA381001CA24B /* DL_DataManager.swift in Sources */,
+				5AAD38332491AD3E00F52F66 /* AdminSelectDatesViewController.swift in Sources */,
 				5AF298322447D3FC003090DF /* AdminExpensesLookupViewController.swift in Sources */,
 				5ACF0219223F0BDB00FBD3DC /* PAndVModel.swift in Sources */,
 				5ACF021B223F0BFD00FBD3DC /* ReportModel.swift in Sources */,
@@ -761,7 +765,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = WSH8T4CK9T;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -772,8 +776,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker";
-				PRODUCT_NAME = MyExp;
+				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker.12";
+				PRODUCT_NAME = "MyExp 12";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -787,7 +791,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = WSH8T4CK9T;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -798,8 +802,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker";
-				PRODUCT_NAME = MyExp;
+				PRODUCT_BUNDLE_IDENTIFIER = "home-office.myExpenseTracker.12";
+				PRODUCT_NAME = "MyExp 12";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

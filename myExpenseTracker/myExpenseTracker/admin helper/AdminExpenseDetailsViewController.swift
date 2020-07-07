@@ -115,9 +115,10 @@ class AdminExpenseDetailsViewController: UIViewController, UICollectionViewDataS
             let weekText = DL_DataManager.sharedInstance.dayOfWeekDisplayList[indexPath.row]
             let data: [ExpenseModel] = DL_DataManager.sharedInstance.lookupExpenseDict[dateText] ?? []
             let isEmpty: Bool = (data.count == 0) ? true : false
+            let isToday: Bool = (self.currentDay == dateText) ? true : false
             
             cell!.delegate = self
-            cell!.showDate(date: dateText, week: weekText, isEmpty: isEmpty)
+            cell!.showDate(date: dateText, week: weekText, isEmpty: isEmpty, isToday: isToday)
             cell!.index = indexPath.row
             
             if indexPath.row == DL_DataManager.sharedInstance.selectedTopCollectionViewIndex {

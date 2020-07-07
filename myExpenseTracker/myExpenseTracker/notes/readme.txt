@@ -20,3 +20,19 @@ and they are all calling the data manager class.
 
 also, can have the json manager class.  this is for parsing the JSON data into objects.
 and pass them to the view controllers.
+
+//
+
+4.
+in admin / expense report, it has the date selection
+
+problem  : it is tight with the report generation, and is hard to reuse.
+solution : re-write the date selection page.  and only send back the date string, as "year-month", or "year".
+
+issue :
+in the look up for vendor, it also needs to select a year.  and no need to have duplicated files.
+
+the date selection class is a view displaying page.
+
+
+
